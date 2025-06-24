@@ -1,0 +1,198 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+
+
+header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/assets/background-codice-loiane.png);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+
+    width: 203px;
+    height: auto;
+
+}
+
+
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--corPrincipal);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+.caixa-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.caixa-texto h1 {
+    font-size: 80px;
+}
+
+.caixa-texto p {
+    margin: 10px 0 20px;
+    font-size: 30px;
+    color: white;
+}
+
+
+.entrar {
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 16px 34px;
+    font-size: 28px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.entrar:hover {
+    border: 1px solid #4c1a99;
+    background: #4c1a99;
+    transition: 1s;
+}
+
+.hero-btn {
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 16px 34px;
+    font-size: 28px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    border: 1px solid var(--corPrincipal);
+    background: #4c1a99;
+    transition: 1s;
+}
+
+nav .fa {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .logo {
+        width: 150px;
+        margin-top: 2vw;
+    }
+
+    .caixa-texto h1 {
+        font-size: 55px;
+    }
+
+    .caixa-texto p {
+        font-size: 21px;
+
+    }
+
+    .nav-links ul li {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        background: var(--corPrincipal);
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+
+    }
+
+    nav .fa {
+        display: block;
+        color: white;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .nav-links ul {
+        padding: 30px;
+
+    }
+
+    .loianecodice {
+        width: 50vw;
+    }
+}
+
+
+/* ---------------------------- Parceria -------------------------- */
+
+    .loianecodice {
+        padding-top: 40px;
+    }

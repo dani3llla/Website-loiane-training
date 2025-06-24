@@ -1,359 +1,390 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loiane Training</title>
-    <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- carrossel  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loiane Training</title>
+  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- carrossel  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><img class="logo" src="assets/loiane-training-logo-branca.png" alt="logo Loiane Gronner"></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#cursos">Cursos</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
-                  
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-        
+  <header>
+    <nav>
+      <a href="index.html"><img class="logo" src="assets/loiane-training-logo-branca.png" alt="logo Loiane Gronner"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
 
-        <div class="caixa-texto">
-            
-            <h1>Angular, Java, Spring e mais... </h1>
-            <p>cursos online e gratuitos com certificado de participação! </p>
-            <a href="#" class="hero-btn">Saiba Mais</a>
-        </div>
-    </header>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
 
 
-    <main>
-      
+    <div class="caixa-texto">
 
-      <!-- ------------------ Cursos ------------------------->
+      <h1>Angular, Java, Spring e mais... </h1>
+      <p>cursos online e gratuitos com certificado de participação! </p>
+      <a href="#" class="hero-btn">Saiba Mais</a>
+    </div>
+  </header>
 
 
-<section class="cursos" id="cursos" >
-    
-           <div class="container swiper">
-            <div class="wrapper">
-              <div class="card-list swiper-wrapper">
-                <!-- card -->
-                <div class="card swiper-slide">
-                  <div class="card-image">
-                    <img src="cursosAssets/Angular.png" alt="Curso Angular" />
-                    <div class="card-tag">Front-end</div>
-                  </div>
-                  <div class="card-content">
-                    <h3 class="card-title">Angular</h3>
-                    <p class="card-text"> Neste curso, você aprenderá a desenvolver com Angular e TypeScript, desde os conceitos básicos até a criação de uma aplicação completa com rotas e requisições ao servidor.</p>
-                    
-                     <div class="card-footer">
-                      <!-- <div class="card-profile">
+  <main>
+
+
+    <!-- ------------------ Cursos ------------------------->
+
+
+    <section class="cursos" id="cursos">
+
+      <div class="container swiper">
+
+        <!-- Título separado -->
+        <h2 class="titulo-cursos">Cursos disponíveis</h2>
+
+
+        <div class="wrapper">
+          <div class="card-list swiper-wrapper">
+            <!-- card -->
+
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/Angular.png" alt="Curso Angular" />
+                <div class="card-tag">Front-end</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Angular</h3>
+                <p class="card-text"> Neste curso, você aprenderá a desenvolver com Angular e TypeScript, desde os
+                  conceitos básicos até a criação de uma aplicação completa com rotas e requisições ao servidor.</p>
+
+                <div class="card-footer">
+                  <!-- <div class="card-profile">
                          <img src="images/user-1.jpg" alt="Alex Smith" />
                         <div class="card-profile-info">
                           <span class="card-profile-name">Alex Smith</span>
                           <span class="card-profile-role">UI Designer</span>
                         </div> 
                       </div> -->
-                      <a href="#" class="card-button">Saiba Mais</a>
-                    </div> 
-                    
-                  </div>
+                  <a href="#" class="card-button">Saiba Mais</a>
                 </div>
-                <!-- Single Card -->
-                <div class="card swiper-slide">
-                  <div class="card-image">
-                    <img src="cursosAssets/JavaBasico.png" alt="Java Básico" />
-                    <div class="card-tag">Back-end</div>
-                  </div>
-                  <div class="card-content">
-                    <h3 class="card-title">Java Básico</h3>
-                    <p class="card-text">Esse curso é uma introdução à programação em Java, focado em iniciantes, cobrindo desde conceitos fundamentais até tópicos intermediários de forma clara.</p>
-                     <div class="card-footer">
-                      <div class="card-profile">
-                         <!-- <img src="images/user-2.jpg" alt="Jessica Chen" />
+
+              </div>
+            </div>
+            <!-- Single Card -->
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/JavaBasico.png" alt="Java Básico" />
+                <div class="card-tag">Back-end</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Java Básico</h3>
+                <p class="card-text">Esse curso é uma introdução à programação em Java, focado em iniciantes, cobrindo
+                  desde conceitos fundamentais até tópicos intermediários de forma clara.</p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-2.jpg" alt="Jessica Chen" />
                         <div class="card-profile-info">
                           <span class="card-profile-name">Jessica Chen</span>
                           <span class="card-profile-role">Developer</span>
                         </div>  -->
-                      </div>
-
-                      <a href="#" class="card-button">Saiba Mais</a>
-                        
-                    </div> 
-                   
                   </div>
+
+                  <a href="#" class="card-button">Saiba Mais</a>
+
                 </div>
 
-                                <div class="card swiper-slide">
-                    <div class="card-image">
-                      <img src="cursosAssets/Angular-spring.png" alt="CRUD Angular + Spring" />
-                      <div class="card-tag">Full-stack</div>
-                    </div>
-                    <div class="card-content">
-                      <h3 class="card-title">CRUD Angular + Spring</h3>
-                      <p class="card-text">O Curso de CRUD Angular + Spring da Loiane Groner ensina a construir uma aplicação web completa, utilizando Angular no front-end e Spring no back-end.</p>
-                       <div class="card-footer">
-                        <div class="card-profile">
-                          <!-- <img src="images/user-5.jpg" alt="David Park" />
+              </div>
+            </div>
+
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/Angular-spring.png" alt="CRUD Angular + Spring" />
+                <div class="card-tag">Full-stack</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">CRUD Angular + Spring</h3>
+                <p class="card-text">O Curso de CRUD Angular + Spring ensina a construir uma aplicação web completa,
+                  utilizando Angular no front-end e Spring no back-end.</p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-5.jpg" alt="David Park" />
                           <div class="card-profile-info">
                             <span class="card-profile-name">David Park</span>
                             <span class="card-profile-role">Motion Designer</span>
                           </div> -->
-                        </div>
-                       
-                      </div> 
-                      <a href="#" class="card-button">Saiba Mais</a>
-                    </div>
                   </div>
-                <!-- Single Card -->
-                <div class="card swiper-slide">
-                  <div class="card-image">
-                    <img src="/cursosAssets/Estrutura-de-dados-com-java.png" alt="Estrutura de Dados com Java" />
-                    <div class="card-tag">Fundamentos de Programação</div>
-                  </div>
-                  <div class="card-content">
-                    <h3 class="card-title">Estrutura de Dados com Java</h3>
-                    <p class="card-text">Nesse curso vamos aprender a teoria, como podemos utilizar a estrutura de dados ou algoritmo em projetos reais, além de aprender as estruturas presentes na linguagem Java.</p>
-                     <div class="card-footer">
-                      <div class="card-profile">
-                        <!-- <img src="images/user-3.jpg" alt="Marcus Johnson" />
+
+                </div>
+                <a href="#" class="card-button">Saiba Mais</a>
+              </div>
+            </div>
+            <!-- Single Card -->
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="/cursosAssets/Estrutura-de-dados-com-java.png" alt="Estrutura de Dados com Java" />
+                <div class="card-tag">Fundamentos de Programação</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Estrutura de Dados com Java</h3>
+                <p class="card-text">Nesse curso vamos aprender a teoria, como podemos utilizar a estrutura de dados ou
+                  algoritmo em projetos reais, além de aprender as estruturas presentes na linguagem Java.</p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-3.jpg" alt="Marcus Johnson" />
                         <div class="card-profile-info">
                           <span class="card-profile-name">Marcus Johnson</span>
                           <span class="card-profile-role">UX Researcher</span>
                         </div> -->
-                      </div>
-                      
-                    </div> 
-                    <a href="#" class="card-button">Saiba Mais</a>
                   </div>
+
                 </div>
-                <!-- Single Card -->
-                <div class="card swiper-slide">
-                  <div class="card-image">
-                    <img src="cursosAssets/JavaIntermediario.png" alt="Java Intermediário" />
-                    <div class="card-tag">Back-end</div>
-                  </div>
-                  <div class="card-content">
-                    <h3 class="card-title">Java Intermediário</h3>
-                    <p class="card-text">O Curso de Java Intermediário é para desenvolvedores que dominam o básico e desejam aprimorar suas habilidades, preparando-os para desafios mais complexos e projetos avançados em Java.</p>
-                    <div class="card-footer">
-                      <div class="card-profile">
-                        <!-- <img src="images/user-4.jpg" alt="Sarah Miller" />
+                <a href="#" class="card-button">Saiba Mais</a>
+              </div>
+            </div>
+            <!-- Single Card -->
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/JavaIntermediario.png" alt="Java Intermediário" />
+                <div class="card-tag">Back-end</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Java Intermediário</h3>
+                <p class="card-text">O Curso de Java Intermediário é para desenvolvedores que dominam o básico e desejam
+                  aprimorar suas habilidades, preparando-os para desafios mais complexos e projetos avançados em Java.
+                </p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-4.jpg" alt="Sarah Miller" />
                         <div class="card-profile-info">
                           <span class="card-profile-name">Sarah Miller</span>
                           <span class="card-profile-role">Interior Designer</span>
                         </div> -->
-                      </div>
-                      
-                    </div> 
-                    <a href="#" class="card-button">Saiba Mais</a>
+                  </div>
 
-                  </div>
                 </div>
-                <!-- Single Card -->
-                <div class="card swiper-slide">
-                  <div class="card-image">
-                    <img src="cursosAssets/Phonegap.png" alt="Phonegap e Apache Cordova" />
-                    <div class="card-tag">Mobile</div>
-                  </div>
-                  <div class="card-content">
-                    <h3 class="card-title">Phonegap e Apache Cordova</h3>
-                    <p class="card-text">Esse curso ensina a criar aplicativos móveis híbridos. O curso abrange desde a configuração do ambiente até a integração com recursos nativos do dispositivo. Ideal para desenvolver para Android e iOS de forma prática.</p>
-                    <div class="card-footer">
-                      <div class="card-profile">
-                        <!-- <img src="images/user-5.jpg" alt="David Park" />
+                <a href="#" class="card-button">Saiba Mais</a>
+
+              </div>
+            </div>
+            <!-- Single Card -->
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/Phonegap.png" alt="Phonegap e Apache Cordova" />
+                <div class="card-tag">Mobile</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Phonegap e Apache Cordova</h3>
+                <p class="card-text">Esse curso ensina a criar aplicativos móveis híbridos. O curso abrange desde a
+                  configuração do ambiente até a integração com recursos nativos do dispositivo. Ideal para desenvolver
+                  para Android e iOS de forma prática.</p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-5.jpg" alt="David Park" />
                         <div class="card-profile-info">
                           <span class="card-profile-name">David Park</span>
                           <span class="card-profile-role">Motion Designer</span>
                         </div> -->
-                      </div>
-                     
-                    </div> 
-                    <a href="#" class="card-button">Saiba Mais</a>
                   </div>
+
                 </div>
+                <a href="#" class="card-button">Saiba Mais</a>
+              </div>
+            </div>
 
 
 
-                  <div class="card swiper-slide">
-                    <div class="card-image">
-                      <img src="cursosAssets/ExtJS4.png" alt="Fundamentos Ext JS 4" />
-                      <div class="card-tag">Front-end</div>
-                    </div>
-                    <div class="card-content">
-                      <h3 class="card-title">Fundamentos Ext JS 4</h3>
-                      <p class="card-text">Neste curso, você aprenderá os conceitos fundamentais do Ext JS 4, como componentes, layouts, eventos e modelos de dados, além de explorar como construir interfaces com grids, formulários e painéis interativos. </p>
-                      <div class="card-footer">
-                        <div class="card-profile">
-                          <!-- <img src="images/user-5.jpg" alt="David Park" />
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/ExtJS4.png" alt="Fundamentos Ext JS 4" />
+                <div class="card-tag">Front-end</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Fundamentos Ext JS 4</h3>
+                <p class="card-text">Neste curso, você aprenderá os conceitos fundamentais do Ext JS 4, como
+                  componentes, layouts, eventos e modelos de dados, além de explorar como construir interfaces com
+                  grids, formulários e painéis interativos. </p>
+                <div class="card-footer">
+                  <div class="card-profile">
+                    <!-- <img src="images/user-5.jpg" alt="David Park" />
                           <div class="card-profile-info">
                             <span class="card-profile-name">David Park</span>
                             <span class="card-profile-role">Motion Designer</span>
                           </div> -->
-                        </div>
-                       
-                      </div> 
-                      <a href="#" class="card-button">Saiba Mais</a>
-                    </div>
                   </div>
+
+                </div>
+                <a href="#" class="card-button">Saiba Mais</a>
               </div>
-              <!-- Pagination -->
-              <div class="swiper-pagination"></div>
-              <!-- Navigation Buttons -->
-              <div class="swiper-slide-button swiper-button-prev"></div>
-              <div class="swiper-slide-button swiper-button-next"></div>
             </div>
           </div>
-</section>
-      <!-- Linking Swiper script -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      <!-- Custom Script -->
-      <script src="/javascript/script.js"></script>
-
-
-<section>
-  <div class="parceria">
-    <img class="imagemparceria" src="/assets/Parceria.png" alt="">
-  </div>
-</section>
-
-
-
-
-              <!-- Portal -->
-
-        <section class="portal">
-            <h1>Lorem, ipsum dolor.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quo?</p>
-
-            <div class="row">
-                <div class="portal-col">
-                    <h3>Intermediário</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum placeat ipsum nesciunt repellat voluptatem.</p>
-                </div>
-
-                <div class="portal-col">
-                    <h3>Intermediário</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum placeat ipsum nesciunt repellat voluptatem.</p>
-                </div>
-
-                <div class="portal-col">
-                    <h3>Intermediário</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum placeat ipsum nesciunt repellat voluptatem.</p>
-                </div>
-            </div>
-        </section>
-
-          <!DOCTYPE html>
-
-
-        <!-- >>>>>>>>>>>>  Comentários <<<<<<<<<<< -->
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Testimonial Slider</title>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/comentarios.css" />
-
-    <!-- Boxicons CSS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <section class="comentarios">
-      <div class="testimonial mySwiper">
-        <div class="testi-content swiper-wrapper">
-          <div class="slide swiper-slide">
-            <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
-              saepe provident dolorem a quaerat quo error facere nihil deleniti
-              eligendi ipsum adipisci, fugit, architecto amet asperiores
-              doloremque deserunt eum nemo.
-            </p>
-
-            <i class="bx bxs-quote-alt-left quote-icon"></i>
-
-            <div class="details">
-              <span class="name">Marnie Lotter</span>
-              <span class="job">Web Developer</span>
-            </div>
-          </div>
-          <div class="slide swiper-slide">
-            <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
-              saepe provident dolorem a quaerat quo error facere nihil deleniti
-              eligendi ipsum adipisci, fugit, architecto amet asperiores
-              doloremque deserunt eum nemo.
-            </p>
-
-            <i class="bx bxs-quote-alt-left quote-icon"></i>
-
-            <div class="details">
-              <span class="name">Marnie Lotter</span>
-              <span class="job">Web Developer</span>
-            </div>
-          </div>
-          <div class="slide swiper-slide">
-            <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
-              saepe provident dolorem a quaerat quo error facere nihil deleniti
-              eligendi ipsum adipisci, fugit, architecto amet asperiores
-              doloremque deserunt eum nemo.
-            </p>
-
-            <i class="bx bxs-quote-alt-left quote-icon"></i>
-
-            <div class="details">
-              <span class="name">Marnie Lotter</span>
-              <span class="job">Web Developer</span>
-            </div>
-          </div>
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Navigation Buttons -->
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
         </div>
-        <div class="swiper-button-next nav-btn"></div>
-        <div class="swiper-button-prev nav-btn"></div>
-        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- Linking Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script src="/javascript/script.js"></script>
+
+
+
+
+
+
+
+    <!-- >>>>>>>>>>>>>>>>> PARCERIA <<<<<<<<<<<<<< -->
+    <section>
+      <div class="parceria">
+        <a href="/html/parceria.html">
+          <img class="imagemparceria" src="/assets/SAIBA MAIS.png" alt=""></a>
       </div>
     </section>
 
-    <!-- Swiper JS -->
-    <script src="/javascript/swiper-bundle.min.js"></script>
 
-    <!-- JavaScript -->
-    <script src="/javascript/comentario.js"></script>
-  </body>
-</html>
-    </main>
+
+
+    <!-- Portal -->
+
+    <section class="portal">
+      <h1>Lorem, ipsum dolor.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quo?</p>
+
+      <div class="row">
+        <div class="portal-col">
+          <h3>Intermediário</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur
+            consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum
+            placeat ipsum nesciunt repellat voluptatem.</p>
+        </div>
+
+        <div class="portal-col">
+          <h3>Intermediário</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur
+            consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum
+            placeat ipsum nesciunt repellat voluptatem.</p>
+        </div>
+
+        <div class="portal-col">
+          <h3>Intermediário</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam a officia repellendus aspernatur
+            consectetur sint perferendis incidunt consequuntur nostrum voluptatum explicabo laborum veritatis qui, earum
+            placeat ipsum nesciunt repellat voluptatem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!DOCTYPE html>
+
+
+    <!-- >>>>>>>>>>>>  Comentários <<<<<<<<<<< -->
+    <html lang="pt-br">
+
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Responsive Testimonial Slider</title>
+
+      <!-- Swiper CSS -->
+      <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="/css/comentarios.css" />
+
+      <!-- Boxicons CSS -->
+      <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    </head>
+
+    <body>
+      <section class="comentarios">
+        <div class="testimonial mySwiper">
+          <div class="testi-content swiper-wrapper">
+            <div class="slide swiper-slide">
+              <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+                saepe provident dolorem a quaerat quo error facere nihil deleniti
+                eligendi ipsum adipisci, fugit, architecto amet asperiores
+                doloremque deserunt eum nemo.
+              </p>
+
+              <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+              <div class="details">
+                <span class="name">Marnie Lotter</span>
+                <span class="job">Web Developer</span>
+              </div>
+            </div>
+            <div class="slide swiper-slide">
+              <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+                saepe provident dolorem a quaerat quo error facere nihil deleniti
+                eligendi ipsum adipisci, fugit, architecto amet asperiores
+                doloremque deserunt eum nemo.
+              </p>
+
+              <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+              <div class="details">
+                <span class="name">Marnie Lotter</span>
+                <span class="job">Web Developer</span>
+              </div>
+            </div>
+            <div class="slide swiper-slide">
+              <img src="/assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+                saepe provident dolorem a quaerat quo error facere nihil deleniti
+                eligendi ipsum adipisci, fugit, architecto amet asperiores
+                doloremque deserunt eum nemo.
+              </p>
+
+              <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+              <div class="details">
+                <span class="name">Marnie Lotter</span>
+                <span class="job">Web Developer</span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next nav-btn"></div>
+          <div class="swiper-button-prev nav-btn"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <!-- Swiper JS -->
+      <script src="/javascript/swiper-bundle.min.js"></script>
+
+      <!-- JavaScript -->
+      <script src="/javascript/comentario.js"></script>
+    </body>
+
+    </html>
+  </main>
 
 
   <footer>
     <div class="content">
       <div class="top">
         <div class="logo-details">
-        
+
           <img class="logofooter" src="/assets/loiane-training-logo-branca.png" alt="">
         </div>
         <div class="media-icons">
@@ -422,16 +453,17 @@
 
 
 
-    <script>
-        var navLinks = document.getElementById("navLinks");
+  <script>
+    var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
+    function showMenu() {
+      navLinks.style.right = "0";
+    }
 
-        function hideMenu(){
-            navLinks.style.right = "-200px";
-        }
-    </script>
+    function hideMenu() {
+      navLinks.style.right = "-200px";
+    }
+  </script>
 </body>
+
 </html>
