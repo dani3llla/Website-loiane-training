@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loiane Training</title>
-    <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
-    <link rel="stylesheet" href="registroo.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- carrossel  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loiane Training</title>
+  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
+  <link rel="stylesheet" href="registroo.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- carrossel  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="/index.html"><img class="logo" src="/assets/loiane-training-logo-branca.png" alt="logo Loiane Gronner"></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#cursos">Cursos</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
-                  
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <a href="/index.html"><img class="logo" src="/assets/loiane-training-logo-branca.png"
+          alt="logo Loiane Gronner"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
+
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+  </header>
 
 
-    
-    <section class="container">
-      
-      <form action="#" class="form">
+
+  <section class="container">
+
+    <form action="#" class="form">
+      <div class="input-box">
+        <h2>Cadastro</h2>
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Escreva seu nome completo" required />
+      </div>
+
+      <div class="input-box">
+        <label>Email</label>
+        <input type="text" placeholder="Digite seu E-mail" required />
+      </div>
+
+      <div class="column">
         <div class="input-box">
-          <h2>Cadastro</h2>
-          <label>Nome Completo</label>
-          <input type="text" placeholder="Escreva seu nome completo" required />
+          <label>Número de Telefone</label>
+          <input type="number" placeholder="Digite o Número de Telefone" required />
         </div>
-
         <div class="input-box">
-          <label>Email</label>
-          <input type="text" placeholder="Digite seu E-mail" required />
+          <label>Data de Nascimento</label>
+          <input type="date" placeholder="Digite a data de nascimento" required />
         </div>
+      </div>
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option">
+          <div class="gender">
+            <input type="radio" id="check-male" name="gender" checked />
+            <label for="check-male">Masculino</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-female" name="gender" />
+            <label for="check-female">Feminino</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-nonbinary" name="gender" />
+            <label for="check-nonbinary">Não-Binário</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-other" name="gender" />
+            <label for="check-other">Prefiro não informar</label>
+          </div>
+        </div>
+      </div>
 
-        <div class="column">
-          <div class="input-box">
-            <label>Número de Telefone</label>
-            <input type="number" placeholder="Digite o Número de Telefone" required />
-          </div>
-          <div class="input-box">
-            <label>Data de Nascimento</label>
-            <input type="date" placeholder="Digite a data de nascimento" required />
-          </div>
-        </div>
-        <div class="gender-box">
-          <h3>Gender</h3>
-          <div class="gender-option">
-            <div class="gender">
-              <input type="radio" id="check-male" name="gender" checked />
-              <label for="check-male">Masculino</label>
-            </div>
-            <div class="gender">
-              <input type="radio" id="check-female" name="gender" />
-              <label for="check-female">Feminino</label>
-            </div>
-            <div class="gender">
-              <input type="radio" id="check-nonbinary" name="gender" />
-              <label for="check-nonbinary">Não-Binário</label>
-            </div>
-            <div class="gender">
-              <input type="radio" id="check-other" name="gender" />
-              <label for="check-other">Prefiro não informar</label>
-            </div>
-          </div>
-        </div>
-       
-        <button>Enviar</button>
-      </form>
-    </section>
+      <button>Enviar</button>
+    </form>
+  </section>
 
-    <main>
+  <main>
 
     <script>
-        var navLinks = document.getElementById("navLinks");
+      var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
 
-        function hideMenu(){
-            navLinks.style.right = "-200px";
-        }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
 
 
     </script>
 
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body> <!-- Fim do corpo da página -->
+
 
 </body>
+
 </html>

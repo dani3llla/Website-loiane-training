@@ -16,7 +16,8 @@
 <body>
   <header>
     <nav>
-      <a href="/index.html"><img class="logo" src="/assets/loiane-training-logo-branca.png" alt="logo Loiane Gronner"></a>
+      <a href="/index.html"><img class="logo" src="/assets/loiane-training-logo-branca.png"
+          alt="logo Loiane Gronner"></a>
       <div class="nav-links" id="navLinks">
         <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
@@ -32,10 +33,13 @@
 
 
     <div class="caixa-texto">
-      <img class="loianecodice"  src="/assets/codiceXloianetraining.png" alt="">
+      <img class="loianecodice" src="/assets/codiceXloianetraining.png" alt="">
       <h1>Loiane Training X Códice </h1>
-      <p>Em parceria com a Loiane Training, a Códice vai oferecer vagas de estágio e jovem aprendiz exclusivas para mulheres ex-alunas da plataforma. As oportunidades são para atuar diretamente na consultoria, participando de projetos reais de redesign e inovação digital.</p>
-      <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAY-Lq8dUOU42RVlYODlCNVBQV1BCOTdPTzM5MTg4Qy4u&origin=lprLink&route=shorturl" class="hero-btn"> Inscreva-se Agora!</a>
+      <p>Em parceria com a Loiane Training, a Códice vai oferecer vagas de estágio e jovem aprendiz exclusivas para
+        mulheres ex-alunas da plataforma. As oportunidades são para atuar diretamente na consultoria, participando de
+        projetos reais de redesign e inovação digital.</p>
+      <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAY-Lq8dUOU42RVlYODlCNVBQV1BCOTdPTzM5MTg4Qy4u&origin=lprLink&route=shorturl"
+        class="hero-btn"> Inscreva-se Agora!</a>
     </div>
   </header>
 
@@ -51,17 +55,31 @@
 
 
 
-  <script>
-    var navLinks = document.getElementById("navLinks");
+    <script>
+      var navLinks = document.getElementById("navLinks");
 
-    function showMenu() {
-      navLinks.style.right = "0";
-    }
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
 
-    function hideMenu() {
-      navLinks.style.right = "-200px";
-    }
-  </script>
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body> <!-- Fim do corpo da página -->
+
+
 </body>
 
 </html>
