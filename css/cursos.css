@@ -151,7 +151,7 @@ h1 {
     width: 40px;
 }
 
-/* .overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: -100%;
@@ -168,7 +168,7 @@ nav.open ~ .overlay {
   opacity: 1;
   left: 260px;
   pointer-events: auto;
-}  */
+}  
 
 
 
