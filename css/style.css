@@ -475,7 +475,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d471fc;
+  background-color: #2f053f;
 }
 
 .testimonial {
@@ -509,12 +509,12 @@ h3 {
   padding: 0 160px;
   font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: #ffffff;
 }
 
 .slide .quote-icon {
   font-size: 30px;
-  color: #53044b;
+  color: #ff9af5;
 }
 
 .slide .details {
@@ -526,13 +526,13 @@ h3 {
 .details .name {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
 }
 
 .details .job {
   font-size: 12px;
   font-weight: 400;
-  color: #333;
+  color: #ffffff;
 }
 
 /* swiper button css */
