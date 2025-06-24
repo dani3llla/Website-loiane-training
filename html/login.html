@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Form in HTML and CSS | CodingNepal</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <body>
+    <header>
+        <nav>
+            <a href="/index.html"><img class="logo" src="/assets/loiane-training-logo-branca.png" alt="logo Loiane Gronner"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
+                  
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </header>
+
+
+
+  <div class="login_form">
+    <!-- Login form container -->
+    <form action="#">
+      <h3>Faça login com:</h3>
+
+      <div class="login_option">
+        <!-- Google button -->
+        <div class="option">
+          <a href="#">
+            <img src="logos/google.png" alt="Google" />
+            <span>Google</span>
+          </a>
+        </div>
+
+        <!-- Apple button -->
+        <div class="option">
+          <a href="#">
+            <img src="/assets/facebook.png" alt="Apple" />
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Login option separator -->
+      <p class="separator">
+        <span>ou</span>
+      </p>
+
+      <!-- Email input box -->
+      <div class="input_box">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required />
+      </div>
+
+      <!-- Paswwrod input box -->
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Senha</label>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+
+        <input type="password" id="password" placeholder="Digite sua senha" required />
+      </div>
+
+       <!-- Login button -->
+      <button type="submit">Entrar</button>
+
+      <p class="sign_up">Não possui uma conta? <a href="/html/registro1.html">Cadastre-se</a></p>
+    </form>
+  </div>
+
+      <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+
+
+    </script>
+</body>
+</html>
