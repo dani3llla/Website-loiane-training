@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Menu | Side Navigation Bar</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/cursos.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name"><img class="loianecursos" src="/assets/Loianetraining.png" alt=""></span>
+      </div>
+
+
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name"><img class="loianecursos" src="/assets/Loianetraining.png" alt=""></span>
+          
+
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <h2>Cursos</h2>
+              <a href="#" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Java Básico</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Java Intermediário</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-bell icon"></i>
+                <span class="link">Estrutura de dados com Java</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-message-rounded icon"></i>
+                <span class="link">Angular</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">CRUD: Angular+Spring</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-heart icon"></i>
+                <span class="link">Phonegap e Apache Cordova</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Fundamentos Ext JS 4</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <section class="info-curso">
+        <p class="tag">Java Básico</p>
+        <h1>Curso</h1>
+        <h1>Java</h1>
+        <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio saepe, aperiam voluptatum similique molestiae culpa!</p>
+        <a class="botao" href="">Aulas</a>
+
+        <div class="detalhes">
+          <div>
+            <span>🕑</span>
+            <p>10h</p>
+            <p>Para conclusão</p>
+          </div>
+          <div>
+            <span>👥</span>
+            <p>4567</p>
+            <p>Alunos</p>
+          </div>
+          <div>
+            <span>⭐</span>
+            <p>9.1</p>
+            <p>Avaliação Média</p>
+          </div>
+          <div>
+            <span>📃</span>
+          <p>certificado</p>
+          <p>De participação</p>
+        </div>
+        </div>
+
+      </section>
+      
+      
+
+    </main>
+    
+     <section class="overlay"></section>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/LnORjqZUMIQ?si=lfpDfG6Ps5dwiqsF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+    
+    <script>
+      const navBar = document.querySelector("nav"),
+      menuBtns = document.querySelectorAll(".menu-icon"),
+      overlay = document.querySelector(".overlay");
+      
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+  </body>
+</html>

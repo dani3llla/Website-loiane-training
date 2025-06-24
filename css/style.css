@@ -194,6 +194,23 @@ nav .fa {
   width: 100vw;
 }
 
+/* Padrão: esconde a versão mobile */
+.imagemparceriamobile {
+  display: none;
+}
+
+/* Mostra a versão mobile em telas menores que 768px */
+@media (max-width: 768px) {
+  .imagemparceria {
+    display: none;
+  }
+
+  .imagemparceriamobile {
+    display: block;
+    width: 100vw; /* ajuste conforme o tamanho desejado */
+  }
+}
+
 
 
 
