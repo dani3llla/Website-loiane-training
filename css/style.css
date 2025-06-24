@@ -453,6 +453,7 @@ h3 {
   .wrapper :where(.swiper-button-prev, .swiper-button-next) {
     display: none;
   }
+  
 }
 
 /*----------------------- Comentários ------------------- */
@@ -542,6 +543,11 @@ h3 {
   }
   .nav-btn {
     display: none;
+  }
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination {
+    display: none !important;
   }
 }
 
