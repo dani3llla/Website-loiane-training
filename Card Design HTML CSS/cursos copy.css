@@ -76,10 +76,10 @@
     list-style: none;
   }
 
-    nav .sidebar {
-  overflow-y: auto;
-  height: 100%;
-}
+  nav .sidebar {
+    overflow-y: auto;
+    height: 100%;
+  }
 
   .list .nav-link {
     display: flex;
@@ -193,11 +193,13 @@
   .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    max-width: 1200px; /* largura máxima */
-    margin: 0 auto;     /* centraliza horizontalmente */
+    max-width: 1200px;
+    /* largura máxima */
+    margin: 0 auto;
+    /* centraliza horizontalmente */
     padding: 20px;
     gap: 20px;
-    
+
   }
 
 
@@ -285,11 +287,23 @@
   @media (max-width: 1200px) {
     .card-list .card-item {
       padding: 15px;
-
+      align-items: center;
+      justify-content: center;
     }
   }
 
-  @media screen and (min-width: 768px) {}
+
+@media screen and (max-width: 375px) {
+  .card-list {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .card-list .card-item {
+    padding: 16px;
+  }
+}
+
 
   .overlay {
     position: fixed;
@@ -306,6 +320,8 @@
     /* abaixo da sidebar, acima do conteúdo */
   }
 
+
+
   /* Quando o menu estiver aberto */
   nav.open~.overlay {
     opacity: 1;
@@ -316,8 +332,8 @@
 
 
   .bemvindoc2 {
-  padding-top: 30px;
-  text-align: center;
+    padding-top: 30px;
+    text-align: center;
   }
 
   .javaicon {
@@ -327,25 +343,24 @@
 
 
 
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-}
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
 
-.progress-bar .progress {
-  height: 100%;
-  background-color: #4CAF50;
-  width: 0%; /* será alterado dinamicamente */
-  transition: width 0.3s ease-in-out;
-}
+  .progress-bar .progress {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    /* será alterado dinamicamente */
+    transition: width 0.3s ease-in-out;
+  }
 
-.progresso {
-  text-decoration: none;
-  color: inherit;
-}
-
-
+  .progresso {
+    text-decoration: none;
+    color: inherit;
+  }
