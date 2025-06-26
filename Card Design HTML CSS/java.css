@@ -165,48 +165,6 @@
 
   }
 
-  @media (max-width: 375px) {
-
-
-    .bemvindoc2 {
-      align-items: center;
-    }
-
-    .page-content {
-      display: block;
-    }
-
-    section {
-      padding: 12px;
-    }
-
-    section h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    section ul li {
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    section ul li ul li {
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    body {
-      padding: 5px;
-    }
-
-    .texto2 {
-      font-size: 30px;
-    }
-
-    .javaicon {
-      width: 20vw;
-    }
-  }
 
 
 /* ........... AULA JAVA ...............  */
@@ -429,9 +387,6 @@ ul.sub-itens li::before {
     display: block;
   }
 
-  section {
-    padding: 12px;
-  }
 
   section h2 {
     font-size: 20px;
@@ -446,10 +401,6 @@ ul.sub-itens li::before {
   section ul li ul li {
     font-size: 14px;
     margin-bottom: 5px;
-  }
-
-  body {
-    padding: 5px;
   }
 
   .texto2 {
