@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     background: #250636;
+    background: linear-gradient(90deg, #350351 0%, rgba(181, 34, 125, 1) 100%);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
   }
 
@@ -213,11 +214,34 @@
     text-decoration: none;
     border: 2px solid #000;
     transition: border 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    /* Garante empilhamento */
+    justify-content: space-between;
+    height: 100%;
+    /* Faz o item se expandir se necessário */
+    transition: transform 0.3s ease, border 0.5s ease;
+  }
+
+  .card-item .hero-btn1 {
+    margin-top: 20px;
+    border-radius: 17px;
+    text-decoration: none;
+    color: var(--secundaria);
+    border: 2px solid #8163af;
+    padding: 5px 9px;
+    background-color: #d4b8fd;
+    align-self: flex-start;
   }
 
 
+
   .card-list .card-item:hover {
-    border: 2px solid #c93fff;
+    transform: scale(1.05);
+    /* aumenta em 5% */
+    z-index: 1;
+    /* traz o card pra frente (caso sobreponha outros) */
+
   }
 
   .card-list .card-item img {
@@ -227,41 +251,49 @@
     object-fit: cover;
   }
 
-  .card-list span {
-    display: inline-block;
-    background: #F7DFF5;
-    margin-top: 32px;
+  .card-item span,
+  .card-item .developer,
+  .card-item .editor,
+  .card-item .designer,
+  .card-item .tech {
+    display: inline-block !important;
+    background-color: #f7dfdf;
+    color: #b22424;
     padding: 8px 15px;
     font-size: 0.75rem;
     border-radius: 50px;
+    margin-top: 15px;
     font-weight: 600;
+    width: fit-content !important;
+    /* força o conteúdo a definir a largura */
+    max-width: 100%;
   }
 
-  .card-list .developer {
+  .card-item .developer {
     background-color: #f7dfdf;
     color: #b22424;
   }
 
-
-  .card-list .editor {
+  .card-item .editor {
     background-color: #f4d6f8;
     color: #5c205c;
   }
 
-  .card-list .designer {
+  .card-item .designer {
     background-color: #fef6d3;
     color: #5c4f20;
   }
 
-  .card-list .tech {
+  .card-item .tech {
     background-color: #c2cbff;
     color: #1c2556;
   }
 
+
   .card-item h3 {
     color: #000;
     font-size: 1.438rem;
-    margin-top: 28px;
+    margin-top: 10px;
     font-weight: 600;
   }
 
@@ -293,16 +325,16 @@
   }
 
 
-@media screen and (max-width: 375px) {
-  .card-list {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
+  @media screen and (max-width: 375px) {
+    .card-list {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
 
-  .card-list .card-item {
-    padding: 16px;
+    .card-list .card-item {
+      padding: 16px;
+    }
   }
-}
 
 
   .overlay {
@@ -332,8 +364,8 @@
 
 
   .bemvindoc2 {
-    padding-top: 30px;
-    text-align: center;
+    padding: 10px 40px;
+    text-align: left;
   }
 
   .javaicon {
@@ -343,16 +375,20 @@
 
 
 
+
   .progress-bar {
     width: 100%;
     height: 8px;
     background-color: #e0e0e0;
     border-radius: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
+    /* novo */
     overflow: hidden;
   }
 
   .progress-bar .progress {
+
     height: 100%;
     background-color: #4CAF50;
     width: 0%;
@@ -364,3 +400,32 @@
     text-decoration: none;
     color: inherit;
   }
+
+  .hero-btn1 {
+
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #8163af;
+    padding: 5px 6px;
+    background-color: #d4b8fd;
+    transition: transform 0.3s ease, border 0.5s ease;
+  }
+
+  .hero-btn1:hover {
+    transform: scale(1.19);
+  }
+
+  .btn-voltar {
+    padding: 30px;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+  }
+
+  .btn-voltar:hover {
+    color: #9d32af;
+  }
+
