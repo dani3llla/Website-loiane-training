@@ -19,9 +19,6 @@
 </head>
 
 <body>
-
-
-
   <main>
 
 
@@ -29,6 +26,8 @@
       <div class="logo">
         <i class="bx bx-menu menu-icon"></i>
         <span class="logo-name"><img class="loianecursos" src="../assets/loiane-training-logo-branca.png" alt=""></span>
+
+       
       </div>
 
 
@@ -50,43 +49,43 @@
 
             <h2>Cursos</h2>
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-message-rounded icon"></i>
+              <a href="../cursos/paginaCursos/paginaJava.html" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
                 <span class="link">Java Básico</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-message-rounded icon"></i>
+              <a href="../cursos/paginaCursos/paginaJavainterm.html" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
                 <span class="link">Java Intermediário</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-pie-chart-alt-2 icon"></i>
+              <a href="../cursos/paginaCursos/paginaEstrutura.html" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
                 <span class="link">Estrutura de dados com Java</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-heart icon"></i>
+              <a href="../cursos/paginaCursos/paginaAngular.html" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
                 <span class="link">Angular</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="../cursos/paginaCursos/paginaAngularspring.html" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
                 <span class="link">CRUD: Angular + Spring</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="../cursos/paginaCursos/paginaExtjs.html" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
                 <span class="link">Fundamentos Ext JS 4</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="../cursos/paginaCursos/paginaPhonegap.html" class="nav-link">
                 <i class="bx bx-folder-open icon"></i>
                 <span class="link">Phonegap e Apache Cordova</span>
               </a>
@@ -97,111 +96,96 @@
     <div class="overlay"></div>
   </main>
 
-
   <!-- >>>>>>>>>>>> CARD DOS CURSOS <<<<<<<<<<<< -->
 
   <div class="page-content">
     <div class="bemvindoc">
+      <div class="texto1 bemvindo-usuario-container">
+        <h1 id="bemvindoUsuario">Usuário</h1>
+      </div>
       <h1 class="texto1">Bem-vindo(a) à sua área de cursos.</h1>
       <p class="texto1">Selecione um para começar</p>
-
-      <div class="card-list">
+      <p class="texto1" id="mensagemLogin" style="color:#b22424; font-weight:600; display:none;">
+        Faça login ou registre-se para acessar os cursos
+        <br>
+        <a href="../html/login.html" id="linkLogin" style="color:#380557; text-decoration:underline; font-weight:600;">Ir para Login</a>
+      </p>
+      <div class="card-list" id="cardList">
 
         <!-- Java Basico  -->
-
-
-
-        <!-- Java Intermediario  -->
-        <div class="card-item">
-
+        <div class="card-item" data-curso="java">
           <img src="../cursosAssets/JavaBasico.png" alt="Card Image">
           <span class="developer">Java</span>
-
           <h3>Java Básico</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-java" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaJava.html" class="hero-btn1">Começar</a>
         </div>
 
-        <div class="card-item">
-
+        <div class="card-item" data-curso="javainterm">
           <img src="../cursosAssets/JavaIntermediario.png" alt="Card Image">
           <span class="developer">Java</span>
-
           <h3>Java Intermediário</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-javainterm" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaJavainterm.html" class="hero-btn1">Começar</a>
         </div>
 
-        <div class="card-item">
-
+        <div class="card-item" data-curso="estrutura">
           <img src="../cursosAssets/Estrutura-de-dados-com-java.png" alt="Card Image">
           <span class="developer">Java</span>
-
           <h3>Estrutura de dados com Java</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-estrutura" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaEstrutura.html" class="hero-btn1">Começar</a>
         </div>
 
-
-
-
-        <div class="card-item">
-
+        <div class="card-item" data-curso="angular">
           <img src="../cursosAssets/Angular.png" alt="Card Image">
           <span class="editor">Angular</span>
-
           <h3>Angular</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-angular" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaAngular.html" class="hero-btn1">Começar</a>
         </div>
 
-        <div class="card-item">
-
+        <div class="card-item" data-curso="angularspring">
           <img src="../cursosAssets/Angular-spring.png" alt="Card Image">
           <span class="editor">Angular + Spring</span>
-
           <h3>CRUD: Angular + Spring</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-angularspring" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaAngularspring.html" class="hero-btn1">Começar</a>
         </div>
 
-        <div class="card-item">
-
+        <div class="card-item" data-curso="extjs">
           <img src="../cursosAssets/ExtJS4.png" alt="Card Image">
           <span class="designer">JavaScript</span>
-
           <h3>Fundamentos Ext JS 4</h3>
           <p class="progresso">Progresso</p>
           <div class="progress-bar">
-            <div class="progress" style="width: 1%;"></div>
+            <div class="progress" id="progress-extjs" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaExtjs.html" class="hero-btn1">Começar</a>
         </div>
 
-        <div class="card-item">
-
+        <div class="card-item" data-curso="phonegap">
           <img src="../cursosAssets/Phonegap.png" alt="Card Image">
           <span class="tech">Aplicações Mobile</span>
-
           <h3>Phonegap e Apache Cordova</h3>
           <p class="progresso">Progresso</p>
-          <div class="progress-bar">  
-            <div class="progress" style="width: 1%;"></div>
+          <div class="progress-bar">
+            <div class="progress" id="progress-phonegap" style="width: 1%;"></div>
           </div>
           <a href="../cursos/paginaCursos/paginaPhonegap.html" class="hero-btn1">Começar</a>
         </div>
@@ -396,6 +380,120 @@
           new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
 
-</body>
+        <script>
+  // Exibe o nome do usuário registrado no localStorage
+  window.addEventListener('DOMContentLoaded', function() {
+    // Verifica login
+    let usuarioNome = null;
+    let usuarioLogado = false;
+    const registro = localStorage.getItem('registro');
+    const loginEmail = localStorage.getItem('loginEmail');
+    if (registro && loginEmail) {
+      try {
+        const usuario = JSON.parse(registro);
+        if (usuario.email === loginEmail) {
+          usuarioNome = usuario.nome;
+          usuarioLogado = true;
+        }
+      } catch (e) {
+        usuarioLogado = false;
+      }
+    }
 
-</html>
+    // Atualiza saudação
+    if (usuarioNome) {
+      document.getElementById('bemvindoUsuario').textContent = usuarioNome;
+    }
+
+    // Protege acesso aos cursos
+    function bloquearAcesso() {
+      // Mensagem para usuário não logado
+      var msg = document.getElementById('mensagemLogin');
+      if (msg) msg.style.display = 'block';
+      var linkLogin = document.getElementById('linkLogin');
+      if (linkLogin) linkLogin.style.display = 'inline';
+
+      // Desabilita links da sidebar
+      document.querySelectorAll('.sidebar-content .nav-link').forEach(link => {
+        if (link.querySelector('.link') && link.querySelector('.link').textContent !== 'Página Inicial') {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Faça login para acessar os cursos.');
+          });
+          link.classList.add('desabilitado');
+        }
+      });
+      // Desabilita cards e botões "Começar"
+      document.querySelectorAll('.card-item a.hero-btn1').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('Faça login para acessar os cursos.');
+        });
+        btn.classList.add('desabilitado');
+      });
+      // Opcional: visual feedback
+      document.querySelectorAll('.card-item').forEach(card => {
+        card.style.opacity = '0.6';
+        card.style.pointerEvents = 'none';
+      });
+      document.getElementById('cardList').style.pointerEvents = 'auto';
+      document.getElementById('cardList').style.opacity = '1';
+    }
+
+    function liberarAcesso() {
+      // Esconde mensagem de login
+      var msg = document.getElementById('mensagemLogin');
+      if (msg) msg.style.display = 'none';
+      var linkLogin = document.getElementById('linkLogin');
+      if (linkLogin) linkLogin.style.display = 'none';
+
+      // Remove bloqueios dos links da sidebar
+      document.querySelectorAll('.sidebar-content .nav-link').forEach(link => {
+        link.classList.remove('desabilitado');
+        link.onclick = null;
+      });
+      // Remove bloqueios dos cards
+      document.querySelectorAll('.card-item a.hero-btn1').forEach(btn => {
+        btn.classList.remove('desabilitado');
+        btn.onclick = null;
+      });
+      document.querySelectorAll('.card-item').forEach(card => {
+        card.style.opacity = '';
+        card.style.pointerEvents = '';
+      });
+    }
+
+    if (!usuarioLogado) {
+      bloquearAcesso();
+    } else {
+      liberarAcesso();
+    }
+  });
+</script>
+<style>
+/* ...existing code... */
+.desabilitado {
+  pointer-events: none !important;
+  opacity: 0.6 !important;
+  filter: grayscale(0.5);
+  cursor: not-allowed !important;
+}
+</style>
+<script>
+  // Progresso dos cursos
+  function atualizarProgressoCursos() {
+    const progresso = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
+    // ids: java, javainterm, estrutura, angular, angularspring, extjs, phonegap
+    const cursos = ['java', 'javainterm', 'estrutura', 'angular', 'angularspring', 'extjs', 'phonegap'];
+    cursos.forEach(curso => {
+      const percent = progresso[curso] || 0;
+      const barra = document.getElementById('progress-' + curso);
+      if (barra) barra.style.width = percent + '%';
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    // ...existing code...
+    atualizarProgressoCursos();
+  });
+</script>

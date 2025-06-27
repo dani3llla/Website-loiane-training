@@ -5,15 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registre-se</title>
-  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/LogoLoiane.png" type="image/x-icon">
   <link rel="stylesheet" href="registroo.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- carrossel  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-    <!-- >>>> MENU DE ACESSIBILIDADE SIENNA <<<<< -->
   <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </head>
 
@@ -29,29 +24,27 @@
           <li><a href="#cursos">Cursos</a></li>
           <li><a href="#">Sobre</a></li>
           <li><a class="entrar" href="../html/login.html">ENTRAR</a></li>
-
         </ul>
       </div>
       <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
   </header>
 
-
-
   <section class="container">
-
-    <form action="#" class="form">
+    <form id="registroForm" action="#" class="form">
       <div class="input-box">
         <h2>Cadastro</h2>
         <label>Nome Completo</label>
         <input type="text" placeholder="Escreva seu nome completo" required />
       </div>
-
       <div class="input-box">
         <label>Email</label>
         <input type="text" placeholder="Digite seu E-mail" required />
       </div>
-
+      <div class="input-box">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua Senha" required />
+      </div>
       <div class="column">
         <div class="input-box">
           <label>Número de Telefone</label>
@@ -83,25 +76,39 @@
           </div>
         </div>
       </div>
-
-      <button>Enviar</button>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
   <main>
-
     <script>
       var navLinks = document.getElementById("navLinks");
+      function showMenu() { navLinks.style.right = "0"; }
+      function hideMenu() { navLinks.style.right = "-200px"; }
 
-      function showMenu() {
-        navLinks.style.right = "0";
-      }
+      // LocalStorage e redirecionamento após cadastro
+      document.getElementById('registroForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const nome = form.querySelector('input[placeholder="Escreva seu nome completo"]').value;
+        const email = form.querySelector('input[placeholder="Digite seu E-mail"]').value;
+        const senha = form.querySelector('input[placeholder="Digite sua Senha"]').value;
+        const telefone = form.querySelector('input[placeholder="Digite o Número de Telefone"]').value;
+        const nascimento = form.querySelector('input[type="date"]').value;
+        const gender = form.querySelector('input[name="gender"]:checked').nextElementSibling.textContent;
 
-      function hideMenu() {
-        navLinks.style.right = "-200px";
-      }
+        const dados = {
+          nome,
+          email,
+          senha,
+          telefone,
+          nascimento,
+          gender
+        };
 
-
+        localStorage.setItem('registro', JSON.stringify(dados));
+        window.location.href = "../cursos/cursos copy.html";
+      });
     </script>
 
 

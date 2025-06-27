@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/LogoLoiane.png" type="image/x-icon">
   <link rel="stylesheet" href="login.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -190,7 +190,7 @@
             <li><a href="#">Inicio</a></li>
             <li><a href="#cursos">Cursos</a></li>
             <li><a href="#">Sobre</a></li>
-            <li><a class="entrar" href="./html/login.html">ENTRAR</a></li>
+            <li><a class="entrar" href="login.html">ENTRAR</a></li>
 
           </ul>
         </div>
@@ -202,7 +202,7 @@
 
     <div class="login_form">
       <!-- Login form container -->
-      <form action="#">
+      <form id="loginForm" action="#">
         <h3>Faça login com:</h3>
 
         <div class="login_option">
@@ -233,21 +233,17 @@
           <label for="email">Email</label>
           <input type="email" id="email" placeholder="Digite seu e-mail" required />
         </div>
-
-        <!-- Paswwrod input box -->
         <div class="input_box">
           <div class="password_title">
             <label for="password">Senha</label>
             <a href="#">Esqueceu a senha?</a>
           </div>
-
           <input type="password" id="password" placeholder="Digite sua senha" required />
         </div>
-
         <!-- Login button -->
         <button type="submit">Entrar</button>
 
-        <p class="sign_up">Não possui uma conta? <a href="../html/registro1.html">Cadastre-se</a></p>
+        <p class="sign_up">Não possui uma conta? <a href="registro1.html">Cadastre-se</a></p>
       </form>
     </div>
 
@@ -262,7 +258,30 @@
         navLinks.style.right = "-200px";
       }
 
+      // LocalStorage para login com validação de registro
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('password').value;
 
+        // Busca registro salvo
+        const registro = localStorage.getItem('registro');
+        if (registro) {
+          try {
+            const usuario = JSON.parse(registro);
+            if (usuario.email === email && usuario.senha === senha) {
+              localStorage.setItem('loginEmail', email);
+              window.location.href = "../cursos/cursos copy.html";
+            } else {
+              alert('Email ou senha incorretos.');
+            }
+          } catch (e) {
+            alert('Erro ao acessar os dados de registro.');
+          }
+        } else {
+          alert('Nenhum usuário registrado encontrado.');
+        }
+      });
     </script>
 
     <!-- >>>>> LIBRAS ACESSIBILIDADE <<<<<< -->

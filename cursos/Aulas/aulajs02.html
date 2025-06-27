@@ -25,7 +25,7 @@
         <nav>
             <div class="logo">
                 <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name"><img class="loianecursos" src="/assets/loiane-training-logo-branca.png"
+                <span class="logo-name"><img class="loianecursos" src="../../assets/loiane-training-logo-branca.png"
                         alt="loiane training"></span>
             </div>
 
@@ -33,7 +33,7 @@
             <div class="sidebar">
                 <div class="logo">
                     <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name"><img class="loianecursos" src="/assets/Loianetraining.png" alt=""></span>
+                    <span class="logo-name"><img class="loianecursos" src="../../assets/Loianetraining.png" alt=""></span>
                 </div>
 
 
@@ -43,7 +43,7 @@
                         <ul class="lists">
                             <h2>Voltar</h2>
                             <li class="list">
-                                <a href="/cursos/cursos copy.html" class="nav-link">
+                                <a href="../cursos copy.html" class="nav-link">
                                     <i class="bx bx-home-alt icon"></i>
                                     <span class="link">Página Inicial</span>
                                 </a>
@@ -51,13 +51,13 @@
                             <h2>Aulas</h2>
                             </li>
                             <li class="list">
-                                <a href="/cursos/Aulas/aulajs01.html" class="nav-link">
+                                <a href="aulajs01.html" class="nav-link">
                                     <i class="bx bx-message-rounded icon"></i>
                                     <span class="link">Aula 1</span>
                                 </a>
                             </li>
                             <li class="list">
-                                <a href="/cursos/Aulas/aulajs02.html" class="nav-link">
+                                <a href="aulajs02.html" class="nav-link">
                                     <i class="bx bx-message-rounded icon"></i>
                                     <span class="link">Aula 2</span>
                                 </a>
@@ -91,7 +91,7 @@
     </main>
 
 
-    <a href="/cursos/paginaCursos/paginaExtjs.html" class="btn-voltar" onclick="voltarPagina()">← Voltar</a>
+    <a href="../paginaCursos/paginaExtjs.html" class="btn-voltar" onclick="voltarPagina()">← Voltar</a>
 
     <!-- >>>>>>>>>>>> CARD DOS CURSOS <<<<<<<<<<<< -->
 
@@ -99,7 +99,7 @@
         <div class="page-content">
 
             <div class="bemvindoc2">
-                <img class="javaicon" src="/cursosAssets/extjs-icon.png" alt="">
+                <img class="javaicon" src="../../cursosAssets/extjs-icon.png" alt="">
                 <h1 class="texto2">Aula 2 - Instalação e Hello World</h1>
             </div>
 
@@ -109,8 +109,8 @@
                 </div>
             </div>
 
-            <a href="#" class="hero-btn-java-aula">Próxima Aula</a>
-            <a href="/cursos/Aulas/aulajs01.html" class="hero-btn-java-aula">Aula Anterior</a>
+            <a href="../cursos copy.html" class="hero-btn-java-aula">Próxima Aula</a>
+            <a href="aulajs01.html" class="hero-btn-java-aula" onclick="concluirAula('extjs')">Concluir e ir para a próxima aula</a>
             
 
         </div>
@@ -183,7 +183,7 @@
 
     <!-- Botão de leitura -->
     <button id="toggleReader" title="Ativar leitura por clique">
-        <img class="tts" src="../cursosAssets/tts.png" alt="">
+        <img class="tts" src="../../cursosAssets/tts.png" alt="">
     </button>
 
     <!-- Alerta de ativação/desativação -->
@@ -311,7 +311,17 @@
 
 
 
-        <script src="scriptjava.js"></script>
+        <script src="../scriptjava.js"></script>
     </body>
+    <script>
+        function concluirAula(curso) {
+            // curso deve ser: 'java', 'javainterm', 'estrutura', 'angular', 'angularspring', 'extjs', 'phonegap'
+            let progresso = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
+            progresso[curso] = Math.min(100, (progresso[curso] || 0) + 20);
+            localStorage.setItem('progressoCursos', JSON.stringify(progresso));
+            // Redirecionar para a próxima aula
+            // (o href do botão já faz o redirecionamento)
+        }
+    </script>
 
 </html>
