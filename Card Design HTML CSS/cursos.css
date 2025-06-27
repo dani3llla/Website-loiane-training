@@ -22,8 +22,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background: #250636;
-    background: linear-gradient(90deg, #350351 0%, rgba(181, 34, 125, 1) 100%);
+  background: #B5227D;
+background: linear-gradient(270deg, rgba(181, 34, 125, 1) 0%, rgba(53, 3, 81, 1) 100%);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
   }
 

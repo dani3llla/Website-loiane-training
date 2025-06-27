@@ -19,6 +19,8 @@ html,
 body {
   width: 100%;
   overflow-x: hidden;
+  background-color: whitesmoke;
+
 }
 
 /* Estilos de cabeçalho e navegação */
@@ -30,7 +32,20 @@ header {
   background-position: center;
   background-size: cover;
   position: relative;
+  overflow: hidden;
 }
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 70px;
+  background: linear-gradient(to bottom, transparent 0%, #270f7e 100%);
+  z-index: 2;
+}
+
 
 nav {
   display: flex;
@@ -62,17 +77,6 @@ nav {
   font-size: 18px;
 }
 
-.nav-links ul li a::after {
-  content: '';
-  width: 0%;
-  height: 2px;
-  border: 1px solid var(--corPrincipal); /* Usando variável */
-  background: var(--corPrincipal); /* Usando variável */
-  display: block;
-  margin: auto;
-  transition: 0.5s;
-}
-
 .nav-links ul li a:hover::after {
   width: 100%;
 }
@@ -82,8 +86,10 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: 90%; /* Pode ser ajustado na media query */
-  max-width: 90%; /* Adicionado: Garante que a caixa de texto não exceda 90% do pai */
+  width: 90%;
+  /* Pode ser ajustado na media query */
+  max-width: 90%;
+  /* Adicionado: Garante que a caixa de texto não exceda 90% do pai */
   color: white;
   position: absolute;
   top: 50%;
@@ -94,8 +100,10 @@ nav {
 
 .caixa-texto h1 {
   font-size: 80px;
-  word-break: break-word; /* Adicionado: Força a quebra de palavras longas */
-  hyphens: auto; /* Adicionado: Permite hifenização para melhor ajuste */
+  word-break: break-word;
+  /* Adicionado: Força a quebra de palavras longas */
+  hyphens: auto;
+  /* Adicionado: Permite hifenização para melhor ajuste */
 }
 
 .caixa-texto p {
@@ -118,8 +126,10 @@ nav {
 }
 
 .entrar:hover {
-  border: 1px solid var(--corPrincipal); /* Usando variável */
-  background: var(--corPrincipal); /* Usando variável */
+  border: 1px solid var(--corPrincipal);
+  /* Usando variável */
+  background: var(--corPrincipal);
+  /* Usando variável */
   transition: 1s;
 }
 
@@ -137,10 +147,14 @@ nav {
 }
 
 .hero-btn:hover {
-  border: 1px solid var(--corPrincipal); /* Usando variável */
-  background: var(--corPrincipal); /* Usando variável */
+  border: 1px solid var(--corPrincipal);
+  /* Usando variável */
+  background: var(--corPrincipal);
+  /* Usando variável */
   transition: 1s;
 }
+
+
 
 nav .fa {
   display: none;
@@ -154,12 +168,14 @@ nav .fa {
   }
 
   .caixa-texto h1 {
-    font-size: 35px; /* Ajuste para telas menores */
+    font-size: 35px;
+    /* Ajuste para telas menores */
     line-height: 1.2;
   }
 
   .caixa-texto p {
-    font-size: 16px; /* Ajuste para telas menores */
+    font-size: 16px;
+    /* Ajuste para telas menores */
   }
 
   .nav-links ul li {
@@ -172,9 +188,11 @@ nav .fa {
     height: 100vh;
     width: 200px;
     top: 0;
-    right: -200px; /* Escondida por padrão em mobile */
+    right: -200px;
+    /* Escondida por padrão em mobile */
     text-align: left;
-    z-index: 100; /* Aumentado z-index para garantir sobreposição */
+    z-index: 100;
+    /* Aumentado z-index para garantir sobreposição */
     transition: 1s;
   }
 
@@ -224,12 +242,21 @@ nav .fa {
 .portal h1 {
   font-size: 36px;
   font-weight: 600;
+
 }
 
 .portal p {
-  color: #777;
+  color: #fffefe;
   font-size: 14px;
   font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+
+.portal .subt {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 22px;
   padding: 10px;
 }
@@ -242,8 +269,9 @@ nav .fa {
 
 .portal-col {
   flex-basis: 31%;
-  background: #fff3f3;
-  border-radius: 10%;
+  background: #852896;
+  color: #ffffff;
+  border-radius: 30px;
   margin-bottom: 5%;
   padding: 20px 12px;
   box-sizing: border-box;
@@ -257,7 +285,7 @@ h3 {
 }
 
 .portal-col:hover {
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 0px rgba(90, 26, 136, 0.4);
 }
 
 @media(max-width: 700px) {
@@ -272,7 +300,7 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(#4c1a99, #141414);
+  background: linear-gradient(#270f7e, #141414);
 }
 
 .titulo-cursos {
@@ -351,7 +379,8 @@ h3 {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: justify;
+
 }
 
 .card .card-footer {
@@ -455,13 +484,13 @@ h3 {
 }
 
 .wrapper :where(.swiper-button-prev, .swiper-button-next) {
-  color: #9876f7;
+  color: #000000;
   margin-top: -35px;
   transition: all 0.3s ease;
 }
 
 .wrapper :where(.swiper-button-prev, .swiper-button-next):hover {
-  color: #8b5cf6;
+  color: #9d32af;
 }
 
 /* Responsive media query code for small screens */
@@ -476,13 +505,14 @@ h3 {
 }
 
 /*----------------------- Comentários ------------------- */
+
 .comentarios {
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2f053f;
+  background-color: whitesmoke;
 }
 
 .testimonial {
@@ -491,6 +521,7 @@ h3 {
   width: 100%;
   padding: 50px 0;
   overflow: hidden;
+
 }
 
 .testimonial .image {
@@ -512,14 +543,71 @@ h3 {
 
 .slide p {
   text-align: center;
+  padding: 0 160px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
 }
+
+.slide .quote-icon {
+  font-size: 30px;
+  color: #9d32af;
+}
+
+.slide .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details .name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.details .job {
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .slide p {
+    padding: 0 20px;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination {
+    display: none !important;
+  }
+}
+
 
 
 /* ----------------- FOOTER ----------------------- */
 
-footer {
+#svg {
+  display: block;
+  /* Garante que o SVG se comporte como um bloco e não tenha espaço extra de inline */
+  width: 100%;
+  /* Garante que o SVG ocupe toda a largura */
+  height: auto;
+  /* Permite que a altura se ajuste proporcionalmente */
+  margin-bottom: -5px;
+  /* Ajuste este valor. Um valor negativo pode "puxar" o footer para cima, eliminando o espaço. */
+  vertical-align: bottom;
+  /* Pode ajudar em alguns casos com o espaço gerado por elementos inline-block */
+}
 
-  background: #140B5C;
+
+footer {
+background-color: #350351;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -705,7 +793,7 @@ footer .content .link-boxes .box {
 
 footer .bottom-details {
   width: 100%;
-  background: #0F0844;
+  background: linear-gradient(90deg, #350351 0%, #230335 100%);
 }
 
 footer .bottom-details .bottom_text {
