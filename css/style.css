@@ -510,20 +510,26 @@ h3 {
 
 .comentarios {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: whitesmoke;
-  flex-direction: column; /* Adicione isso para empilhar os elementos verticalmente */
+  flex-direction: column;
+  /* Adicione isso para empilhar os elementos verticalmente */
 }
 
-.titulo-depoimentos { /* Adicione esta nova classe para estilizar o h1 */
-  font-size: 36px; /* Ajuste conforme necessário */
+.titulo-depoimentos {
+  /* Adicione esta nova classe para estilizar o h1 */
+  font-size: 36px;
+  /* Ajuste conforme necessário */
   font-weight: 600;
-  color: #000000; /* Ou sua cor preferida */
-  margin-bottom: 40px; /* Espaço entre o título e os depoimentos */
-  text-align: center; /* Centralize o texto */
+  color: #000000;
+  /* Ou sua cor preferida */
+  margin-bottom: 5px;
+  /* Espaço entre o título e os depoimentos */
+  text-align: center;
+  /* Centralize o texto */
 }
 
 .testimonial {
@@ -612,13 +618,12 @@ h3 {
   /* Permite que a altura se ajuste proporcionalmente */
   margin-bottom: -5px;
   /* Ajuste este valor. Um valor negativo pode "puxar" o footer para cima, eliminando o espaço. */
-  vertical-align: bottom;
-  /* Pode ajudar em alguns casos com o espaço gerado por elementos inline-block */
+
 }
 
 
 footer {
-background-color: #350351;
+  background-color: #350351;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -672,8 +677,18 @@ footer .content .top {
   transition: all 0.4s ease;
 }
 
+.socials {
+  width: 20px;
+  margin-top: 10px;
+}
+
+.github {
+  margin-top: 2px;
+  width: 35px;
+}
+
 .top .media-icons a:nth-child(1) {
-  background: #4267B2;
+  background: #000000;
 }
 
 .top .media-icons a:nth-child(1):hover {
@@ -682,7 +697,7 @@ footer .content .top {
 }
 
 .top .media-icons a:nth-child(2) {
-  background: #1DA1F2;
+  background: #ffffff;
 }
 
 .top .media-icons a:nth-child(2):hover {
@@ -691,7 +706,7 @@ footer .content .top {
 }
 
 .top .media-icons a:nth-child(3) {
-  background: #E1306C;
+  background: #cd0000;
 }
 
 .top .media-icons a:nth-child(3):hover {
@@ -700,7 +715,7 @@ footer .content .top {
 }
 
 .top .media-icons a:nth-child(4) {
-  background: #0077B5;
+  background: #0066f5;
 }
 
 .top .media-icons a:nth-child(4):hover {
@@ -709,7 +724,7 @@ footer .content .top {
 }
 
 .top .media-icons a:nth-child(5) {
-  background: #FF0000;
+  background: #0e76a8;
 }
 
 .top .media-icons a:nth-child(5):hover {
@@ -773,7 +788,7 @@ footer .content .link-boxes .box {
   width: calc(100% + 55px);
   outline: none;
   border: 2px solid #AFAFB6;
-  background: #140B5C;
+  background: #502e6b;
   border-radius: 4px;
   padding: 0 15px;
   font-size: 15px;
@@ -782,7 +797,7 @@ footer .content .link-boxes .box {
 }
 
 .link-boxes .input-box input::placeholder {
-  color: #AFAFB6;
+  color: #d4d4d6;
   font-size: 16px;
 }
 
@@ -834,6 +849,16 @@ footer .bottom-details .bottom_text {
 }
 
 @media (max-width: 900px) {
+  .socials {
+    width: 20px;
+    margin-top: 8px;
+  }
+
+  .github {
+    margin-top: 2px;
+    width: 30px;
+  }
+
   footer .content .link-boxes {
     flex-wrap: wrap;
   }
@@ -844,7 +869,17 @@ footer .bottom-details .bottom_text {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+    .socials {
+    width: 20px;
+    margin-top: 8px;
+  }
+
+  .github {
+    margin-top: 2px;
+    width: 30px;
+  }
+
   footer {
     position: relative;
   }
