@@ -506,6 +506,8 @@ h3 {
 
 /*----------------------- Comentários ------------------- */
 
+/*----------------------- Comentários ------------------- */
+
 .comentarios {
   height: 100vh;
   width: 100%;
@@ -513,6 +515,15 @@ h3 {
   align-items: center;
   justify-content: center;
   background-color: whitesmoke;
+  flex-direction: column; /* Adicione isso para empilhar os elementos verticalmente */
+}
+
+.titulo-depoimentos { /* Adicione esta nova classe para estilizar o h1 */
+  font-size: 36px; /* Ajuste conforme necessário */
+  font-weight: 600;
+  color: #000000; /* Ou sua cor preferida */
+  margin-bottom: 40px; /* Espaço entre o título e os depoimentos */
+  text-align: center; /* Centralize o texto */
 }
 
 .testimonial {
