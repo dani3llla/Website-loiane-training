@@ -34,7 +34,8 @@
             <div class="sidebar">
                 <div class="logo">
                     <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name"><img class="loianecursos" src="../../assets/Loianetraining.png" alt=""></span>
+                    <span class="logo-name"><img class="loianecursos" src="../../assets/Loianetraining.png"
+                            alt=""></span>
                 </div>
 
 
@@ -114,7 +115,8 @@
                 </div>
             </div>
 
-            <a href="../cursos copy.html" class="hero-btn-java-aula" onclick="concluirAula('estrutura')">Concluir e ir para a próxima aula</a>
+            <a href="../cursos copy.html" class="hero-btn-java-aula" onclick="concluirAula('estrutura', 2)">Concluir e
+                ir para a próxima aula</a>
             <a href="aulaestrutura01.html" class="hero-btn-java-aula">Aula Anterior</a>
 
         </div>
@@ -314,6 +316,31 @@
         </script>
 
 
+        <script>
+            function concluirAula(cursoKey, aulaNum) {
+                // Cada aula vale 20%
+                var percent = Math.min(aulaNum * 20, 100);
+                // Salva progresso individual
+                localStorage.setItem('progresso-' + cursoKey, String(percent));
+
+                // Atualiza objeto geral de progresso para compatibilidade com tela inicial
+                var progressoCursos = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
+                var map = {
+                    'javaBasico': 'java',
+                    'javaIntermediario': 'javainterm',
+                    'estrutura': 'estrutura',
+                    'angular': 'angular',
+                    'angularspring': 'angularspring',
+                    'extjs': 'extjs',
+                    'phonegap': 'phonegap'
+                };
+                var idTelaInicial = map[cursoKey] || cursoKey;
+                progressoCursos[idTelaInicial] = percent;
+                localStorage.setItem('progressoCursos', JSON.stringify(progressoCursos));
+                // Também salva com a chave antiga para compatibilidade
+                localStorage.setItem('progresso-estrutura', String(percent));
+            }
+        </script>
 
         <script src="../scriptjava.js"></script>
     </body>

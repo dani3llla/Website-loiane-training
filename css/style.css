@@ -123,6 +123,7 @@ nav {
   background: transparent;
   position: relative;
   cursor: pointer;
+  transition: background 0.3s, color 0.3s;
 }
 
 .entrar:hover {
@@ -991,4 +992,39 @@ footer .bottom-details .bottom_text {
   cursor: pointer;
   text-decoration: underline;
   transition: text-decoration 0.3s ease;
+}
+
+/* Botão entrar e usuário logado */
+.entrar {
+  display: inline-block;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #ffffff;
+  padding: 16px 34px;
+  font-size: 28px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Esconde o botão quando logado */
+.entrar.hide {
+  display: none !important;
+}
+
+/* Estilo para o nome do usuário logado */
+.usuario-logado {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 16px 34px;
+  font-size: 28px;
+  background: #4c1a99;
+  color: #fff;
+  border: 1px solid #4c1a99;
+  font-weight: bold;
+  cursor: default;
+  pointer-events: none;
+  margin-left: 10px;
 }

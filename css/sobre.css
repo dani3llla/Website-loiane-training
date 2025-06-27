@@ -1,0 +1,845 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+/* Definição de variáveis CSS */
+:root {
+    --corPrincipal: #4c1a99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Mantém apenas o necessário para sobre.html */
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+}
+
+/* Header e navegação */
+header {
+
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #e2c9fc;
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+nav .fa {
+    display: none;
+}
+
+@media(max-width: 700px) {
+    .logo {
+        width: 150px;
+        margin-top: 2vw;
+    }
+
+    .caixa-texto h1 {
+        font-size: 35px;
+        line-height: 1.2;
+    }
+
+    .caixa-texto p {
+        font-size: 16px;
+    }
+
+    .nav-links ul li {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        background: #4c1a99;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 100;
+        transition: 1s;
+    }
+
+    nav .fa {
+        display: block;
+        color: rgb(0, 0, 0);
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .nav-links ul {
+        padding: 30px;
+    }
+}
+
+
+/* ................. Botões ................... */
+.entrar,
+.hero-btn {
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #000000;
+    padding: 16px 34px;
+    font-size: 28px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.entrar:hover,
+.hero-btn:hover {
+    color: rgb(255, 255, 255);
+
+    border: 1px solid #4c1a99;
+    background: #4c1a99;
+    transition: 1s;
+}
+
+/* .............. SOBRE ..................  */
+
+.pic {
+    height: auto;
+    width: 500px;
+    border-radius: 12px;
+    max-width: 90vw;
+}
+
+.about {
+    width: 1130px;
+    max-width: 95vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.text {
+    width: 540px;
+    max-width: 95vw;
+}
+
+.text h2 {
+    color: #000000;
+    font-size: 90px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.text h5 {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+span {
+    color: #53106a;
+}
+
+.text p {
+    color: #000000;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.data {
+    margin-top: 30px;
+}
+
+.hire {
+    font-size: 18px;
+    background: #2b0748;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.hire:hover {
+    background: #000;
+}
+
+/* ....... FIM DO SOBRE ........... */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------- FOOTER ----------------------- */
+
+#svg {
+    display: block;
+    /* Garante que o SVG se comporte como um bloco e não tenha espaço extra de inline */
+    width: 100%;
+    /* Garante que o SVG ocupe toda a largura */
+    height: auto;
+    /* Permite que a altura se ajuste proporcionalmente */
+    margin-bottom: -5px;
+    /* Ajuste este valor. Um valor negativo pode "puxar" o footer para cima, eliminando o espaço. */
+
+}
+
+
+footer {
+    background-color: #350351;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.logofooter {
+    width: 15vw;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+}
+
+footer .content {
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+}
+
+footer .content .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.content .top .logo-details {
+    color: #fff;
+    font-size: 30px;
+}
+
+.content .top .media-icons {
+    display: flex;
+}
+
+.content .top .media-icons a {
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.socials {
+    width: 20px;
+    margin-top: 10px;
+}
+
+.github {
+    margin-top: 2px;
+    width: 35px;
+}
+
+.top .media-icons a:nth-child(1) {
+    background: #000000;
+}
+
+.top .media-icons a:nth-child(1):hover {
+    color: #4267B2;
+    background: #fff;
+}
+
+.top .media-icons a:nth-child(2) {
+    background: #ffffff;
+}
+
+.top .media-icons a:nth-child(2):hover {
+    color: #1DA1F2;
+    background: #fff;
+}
+
+.top .media-icons a:nth-child(3) {
+    background: #cd0000;
+}
+
+.top .media-icons a:nth-child(3):hover {
+    color: #E1306C;
+    background: #fff;
+}
+
+.top .media-icons a:nth-child(4) {
+    background: #0066f5;
+}
+
+.top .media-icons a:nth-child(4):hover {
+    color: #0077B5;
+    background: #fff;
+}
+
+.top .media-icons a:nth-child(5) {
+    background: #0e76a8;
+}
+
+.top .media-icons a:nth-child(5):hover {
+    color: #FF0000;
+    background: #fff;
+}
+
+footer .content .link-boxes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .content .link-boxes .box {
+    width: calc(100% / 5 - 10px);
+}
+
+.content .link-boxes .box .link_name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.link-boxes .box .link_name::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 35px;
+    background: #fff;
+}
+
+.content .link-boxes .box li {
+    margin: 6px 0;
+    list-style: none;
+}
+
+.content .link-boxes .box li a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.4s ease
+}
+
+.content .link-boxes .box li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.content .link-boxes .input-box {
+    margin-right: 55px;
+}
+
+.link-boxes .input-box input {
+    height: 40px;
+    width: calc(100% + 55px);
+    outline: none;
+    border: 2px solid #AFAFB6;
+    background: #502e6b;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.link-boxes .input-box input::placeholder {
+    color: #d4d4d6;
+    font-size: 16px;
+}
+
+.link-boxes .input-box input[type="button"] {
+    background: #fff;
+    color: #140B5C;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 4px 0;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.input-box input[type="button"]:hover {
+    opacity: 1;
+}
+
+footer .bottom-details {
+    width: 100%;
+    background: linear-gradient(90deg, #350351 0%, #230335 100%);
+}
+
+footer .bottom-details .bottom_text {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a {
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.bottom-details .bottom_text a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.bottom-details .bottom_text a {
+    margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+    .socials {
+        width: 20px;
+        margin-top: 8px;
+    }
+
+    .github {
+        margin-top: 2px;
+        width: 30px;
+    }
+
+    footer .content .link-boxes {
+        flex-wrap: wrap;
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 40%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .socials {
+        width: 20px;
+        margin-top: 8px;
+    }
+
+    .github {
+        margin-top: 2px;
+        width: 30px;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    .content .top .logo-details {
+        font-size: 26px;
+    }
+
+    .content .top .media-icons a {
+        height: 35px;
+        width: 35px;
+        font-size: 14px;
+        line-height: 35px;
+    }
+
+    footer .content .link-boxes .box {
+        width: calc(100% / 3 - 10px);
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 60%;
+    }
+
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .logofooter {
+        width: 40vw;
+    }
+
+    footer::before {
+        top: 145px;
+    }
+
+    footer .content .top {
+        flex-direction: column;
+    }
+
+    .content .top .media-icons {
+        margin-top: 16px;
+    }
+
+    footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 100%;
+    }
+}
+
+/* Botão TTS e alerta */
+#toggleReader {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+#toggleReader.ativo {
+    background-color: #00c853;
+}
+
+.tts {
+    width: 32px;
+    object-fit: contain;
+}
+
+.tts-alerta {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tts-alerta.visivel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.texto-tts:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: text-decoration 0.3s ease;
+}
+
+/* Responsividade para o bloco sobre */
+@media (max-width: 900px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    .pic {
+        width: 80vw;
+        max-width: 400px;
+    }
+
+    .text {
+        width: 90vw;
+        max-width: 95vw;
+        text-align: center;
+    }
+
+    .text h2 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        padding: 0 10px;
+    }
+
+    .pic {
+        width: 95vw;
+        max-width: 320px;
+    }
+
+    .text h2 {
+        font-size: 32px;
+    }
+
+    .text h5 {
+        font-size: 18px;
+    }
+
+    .text p {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+
+/* ====== NOVO CSS: Imagem à direita, texto à esquerda ====== */
+.about.reverse {
+    flex-direction: row-reverse;
+    padding-top: 50px;
+    
+}
+
+.sobre-nós {
+    
+    background-color: #e2c9fc;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.pic1 {
+    height: auto;
+    width: 500px;
+    border-radius: 12px;
+    max-width: 90vw;
+}
+
+.texto {
+    width: 540px;
+    max-width: 95vw;
+}
+
+.texto h2 {
+    color: #000000;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+
+.texto h5 {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+span {
+    color: #53106a;
+}
+
+.texto p {
+    color: #000000;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+    .about.reverse {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .texto {
+        text-align: center;
+    }
+
+    .texto p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+/* ====== MVV (Missão, Visão, Valores) lado a lado ====== */
+.mvv-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 48px;
+    margin: 60px auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.mvv {
+    
+    flex: 1 1 0;
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px 24px 24px;
+    box-shadow: 0 2px 16px 0 rgba(76,26,153,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 220px;
+}
+
+.mvv .mvv-icon {
+    width: 40px;
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #53106a;
+    margin-right: 50px;
+}
+
+.img-mvv{
+    width: 100px;
+
+    object-fit: contain;
+    margin-bottom: 16px;
+}
+
+.mvv h3 {
+    font-size: 2.8rem;
+    font-family: 'Poppins', sans-serif;
+    color: #1a2c26;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.mvv p {
+    font-size: 1.15rem;
+    color: #222;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.mvv ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.mvv ul li {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.mvv-divider {
+    width: 3px;
+    background: #53106a;
+    border-radius: 2px;
+    margin: 0 18px;
+    min-height: 320px;
+    align-self: stretch;
+}
+
+@media (max-width: 900px) {
+    .mvv-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+    .mvv-divider {
+        display: none;
+    }
+}
+
+/* Valores (MVV) - bolinha preta e alinhamento à esquerda */
+.mvv-list {
+    list-style-type: disc !important;
+    padding-left: 60px !important;
+    margin: 0;
+    text-align: left;
+    display: block;
+}
+
+.mvv-list li {
+    color: #222;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: list-item;
+    /* Garante que o marcador apareça */
+}
+

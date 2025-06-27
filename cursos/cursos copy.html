@@ -482,12 +482,23 @@
 <script>
   // Progresso dos cursos
   function atualizarProgressoCursos() {
-    const progresso = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
-    // ids: java, javainterm, estrutura, angular, angularspring, extjs, phonegap
-    const cursos = ['java', 'javainterm', 'estrutura', 'angular', 'angularspring', 'extjs', 'phonegap'];
+    // Para compatibilidade: busca progresso individual por curso
+    const cursos = [
+      { id: 'java', key: 'progresso-javaBasico' },
+      { id: 'javainterm', key: 'progresso-javaIntermediario' },
+      { id: 'estrutura', key: 'progresso-estrutura' },
+      { id: 'angular', key: 'progresso-angular' },
+      { id: 'angularspring', key: 'progresso-angularspring' },
+      { id: 'extjs', key: 'progresso-extjs' },
+      { id: 'phonegap', key: 'progresso-phonegap' }
+    ];
     cursos.forEach(curso => {
-      const percent = progresso[curso] || 0;
-      const barra = document.getElementById('progress-' + curso);
+      // Lê progresso salvo no localStorage (0 a 100)
+      let percent = parseInt(localStorage.getItem(curso.key) || '0', 10);
+      // Corrige se for NaN ou fora do intervalo
+      if (isNaN(percent) || percent < 0) percent = 0;
+      if (percent > 100) percent = 100;
+      const barra = document.getElementById('progress-' + curso.id);
       if (barra) barra.style.width = percent + '%';
     });
   }

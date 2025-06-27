@@ -114,7 +114,7 @@
       </div>
       </div>
     
-    <a href="aula02java.html" class="hero-btn-java-aula" onclick="concluirAula('java')">Concluir e ir para a próxima aula</a>
+    <a href="aula02java.html" class="hero-btn-java-aula" onclick="concluirAula('javaBasico', 1)">Concluir e ir para a próxima aula</a>
       
   </div>
 </section>
@@ -315,6 +315,29 @@
 
 
   <script src="../scriptjava.js"></script>
+  <script>
+    function concluirAula(cursoKey, aulaNum) {
+      // Cada aula vale 20%
+      var percent = Math.min(aulaNum * 20, 100);
+      // Salva progresso individual
+      localStorage.setItem('progresso-' + cursoKey, String(percent));
+
+      // Atualiza objeto geral de progresso para compatibilidade com tela inicial
+      var progressoCursos = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
+      var map = {
+        'javaBasico': 'java',
+        'javaIntermediario': 'javainterm',
+        'estrutura': 'estrutura',
+        'angular': 'angular',
+        'angularspring': 'angularspring',
+        'extjs': 'extjs',
+        'phonegap': 'phonegap'
+      };
+      var idTelaInicial = map[cursoKey] || cursoKey;
+      progressoCursos[idTelaInicial] = percent;
+      localStorage.setItem('progressoCursos', JSON.stringify(progressoCursos));
+    }
+  </script>
 </body>
 
 </html>

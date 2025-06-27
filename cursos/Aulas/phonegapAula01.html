@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            <a href="phonegapAula02.html" class="hero-btn-java-aula" onclick="concluirAula('phonegap')">Concluir e ir para a próxima aula</a>
+            <a href="phonegapAula02.html" class="hero-btn-java-aula" onclick="concluirAula('phonegap', 1)">Concluir e ir para a próxima aula</a>
             
 
 
@@ -316,6 +316,31 @@
 
 
 
+    <script>
+    function concluirAula(cursoKey, aulaNum) {
+      // Cada aula vale 20%
+      var percent = Math.min(aulaNum * 20, 100);
+      // Salva progresso individual
+      localStorage.setItem('progresso-' + cursoKey, String(percent));
+    
+      // Atualiza objeto geral de progresso para compatibilidade com tela inicial
+      var progressoCursos = JSON.parse(localStorage.getItem('progressoCursos') || '{}');
+      var map = {
+        'javaBasico': 'java',
+        'javaIntermediario': 'javainterm',
+        'estrutura': 'estrutura',
+        'angular': 'angular',
+        'angularspring': 'angularspring',
+        'extjs': 'extjs',
+        'phonegap': 'phonegap'
+      };
+      var idTelaInicial = map[cursoKey] || cursoKey;
+      progressoCursos[idTelaInicial] = percent;
+      localStorage.setItem('progressoCursos', JSON.stringify(progressoCursos));
+      // Também salva com a chave antiga para compatibilidade
+      localStorage.setItem('progresso-phonegap', String(percent));
+    }
+    </script>
         <script src="../scriptjava.js"></script>
     </body>
 
