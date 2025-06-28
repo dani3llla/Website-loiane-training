@@ -9,18 +9,24 @@
   font-family: "Poppins", sans-serif;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
 
 body {
   min-height: 100vh;
-  display: block; /* Corrige o flex para evitar conflito com position: fixed dos widgets */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(#220a46, #9d32af);
   margin: 0;
   padding: 0;
+    
   font-family: 'Poppins', sans-serif;
-  /* padding-top: 100px; */
-  max-width: 100vw;
-  overflow-x: hidden;
+  /* padding-top: 100px;  -- REMOVED */
 }
 
 
@@ -28,11 +34,12 @@ body {
 header {
   width: 100%;
   background-color: var(--corPrincipal);
-  position: absolute;
+  position: fixed; 
   top: 0;
   left: 0;
   z-index: 100;
 }
+
 
 nav {
   display: flex;
@@ -49,8 +56,6 @@ nav {
 .nav-links {
   flex: 1;
   text-align: right;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 
 .nav-links ul li {
@@ -107,19 +112,8 @@ nav .fa {
   .logo {
     width: 150px;
     margin-top: 2vw;
-    max-width: 90vw;
   }
-  .nav-links {
-    max-width: 80vw;
-    min-width: 160px;
-  }
-  .container {
-    width: 98vw;
-    max-width: 98vw;
-    min-width: unset;
-    margin: 32px auto 0 auto;
-    padding: 20px 5vw 16px 5vw;
-  }
+
   .nav-links ul li {
     display: block;
   }
@@ -146,7 +140,6 @@ nav .fa {
 
   .nav-links ul {
     padding: 30px;
-
   }
 }
 /* =============== FIM NAVBAR E HEADER =============== */
@@ -376,20 +369,4 @@ nav .fa {
   .form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
-}
-
-/* Fix accessibility widgets to always stay in the viewport and not move with sidebar */
-#toggleReader, .tts-alerta, [vw], [vw-access-button], [vw-plugin-wrapper] {
-  position: fixed !important;
-  z-index: 99999 !important;
-  right: 20px !important;
-  left: auto !important;
-  top: auto !important;
-  bottom: 20px !important;
-  pointer-events: auto !important;
-}
-
-/* Prevent sidebar from overlapping/fixing widgets */
-nav, .nav-links {
-  z-index: 100 !important;
 }
