@@ -9,6 +9,12 @@
     font-family: "Montserrat", sans-serif;
 }
 
+/* Adicionado: Garante que o HTML e o Body não causem scroll horizontal */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 :root {
     --corprincipal: #4c1a99;
     --corsecundaria: #9d32af;
@@ -24,6 +30,7 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     padding-top: 100px;
+    overflow-x: hidden; /* Mantido para o body também */
 }
 
 /* ================= NAVBAR E HEADER ================= */
@@ -121,7 +128,7 @@ nav .fa {
     top: 0;
     right: -200px;
     text-align: left;
-    z-index: 2;
+    z-index: 100; /* Ajustado para 100 para ficar acima do conteúdo, mas abaixo de 9999 */
     transition: 1s;
   }
 
@@ -234,7 +241,7 @@ nav .fa {
         top: 0;
         right: -200px;
         text-align: left;
-        z-index: 2;
+        z-index: 100; /* Ajustado para 100 */
         transition: 1s;
 
     }
@@ -406,4 +413,62 @@ form button {
 
 form button:hover {
     background: #4954d0;
+}
+
+/* Estilo do botão flutuante e alerta (MOVIDO DO HTML) */
+#toggleReader {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0080ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 9999; /* Alto z-index para ficar acima de tudo */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#toggleReader.ativo {
+  background-color: #00c853;
+}
+
+.tts {
+  width: 32px;
+  object-fit: contain;
+}
+
+.tts-alerta {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #323232;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Alto z-index para ficar acima de tudo */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.tts-alerta.visivel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Destaque nos textos clicáveis */
+.texto-tts:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: text-decoration 0.3s ease;
 }

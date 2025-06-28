@@ -1,389 +1,217 @@
 <!DOCTYPE html>
-<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="shortcut icon" href="../assets/LogoLoiane.png" type="image/x-icon">
   <link rel="stylesheet" href="login.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!-- >>>> MENU DE ACESSIBILIDADE SIENNA <<<<< -->
   <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
-
 
 </head>
 
-<!-- ......... COMEÇO DO BOTÃO DE TTS ............. -->
-<style>
-  /* Estilo do botão flutuante */
-  #toggleReader {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0080ff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-  }
+<body>
+  <button id="toggleReader" title="Ativar leitura por clique">
+    <img class="tts" src="../cursosAssets/tts.png" alt="">
+  </button>
 
-  #toggleReader.ativo {
-    background-color: #00c853;
-    /* verde quando ativo */
-  }
+  <div id="ttsAlerta" class="tts-alerta"></div>
 
-  .tts {
-    width: 32px;
- 
-    object-fit: contain;
-  }
+  <script>
+    let leituraAtiva = false;
 
-  /* Estilo do alerta visual */
-  .tts-alerta {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background-color: #323232;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
+    const toggleBtn = document.getElementById('toggleReader');
+    const alerta = document.getElementById('ttsAlerta');
 
-  .tts-alerta.visivel {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* Destaque nos textos clicáveis */
-  .texto-tts:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    transition: text-decoration 0.3s ease;
-  }
-
-  html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    box-sizing: border-box;
-    width: 100vw;
-    min-height: 100vh;
-    background: #f7f7f7;
-    position: relative;
-    overflow-x: hidden;
-  }
-  .login_form {
-    max-width: 400px;
-    margin: 60px auto 0 auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-    padding: 32px 20px 24px 20px;
-    width: 90vw;
-    box-sizing: border-box;
-  }
-  @media (max-width: 600px) {
-    .login_form {
-      margin: 32px auto 0 auto;
-      padding: 20px 5vw 16px 5vw;
-      width: 98vw;
-      min-width: unset;
-    }
-    header nav {
-      padding: 0 8px;
-    }
-    .logo {
-      max-width: 120px;
-      height: auto;
-    }
-  }
-  /* Corrige o menu de acessibilidade e widgets para não ficarem presos na sidebar */
-  #toggleReader, .tts-alerta, [vw], [vw-access-button], [vw-plugin-wrapper] {
-    position: fixed !important;
-    z-index: 99999 !important;
-  }
-  /* Garante que a sidebar/menu não cubra os widgets de acessibilidade */
-  nav, .nav-links {
-    z-index: 100 !important;
-  }
-  /* Corrige o menu mobile para não sobrepor widgets */
-  .nav-links {
-    background: #fff;
-    position: fixed;
-    top: 0;
-    right: -200px;
-    width: 200px;
-    height: 100vh;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    transition: right 0.3s;
-    z-index: 200 !important;
-  }
-  .nav-links ul {
-    padding: 0;
-    margin: 60px 0 0 0;
-    list-style: none;
-  }
-  .nav-links ul li {
-    margin: 24px 0;
-    text-align: left;
-  }
-  .fa-bars, .fa-times {
-    font-size: 28px;
-    color: #333;
-    cursor: pointer;
-    z-index: 201 !important;
-    position: relative;
-  }
-  /* Evita que widgets de acessibilidade sejam puxados junto com a sidebar */
-  [vw], [vw-access-button], [vw-plugin-wrapper], #toggleReader, .tts-alerta {
-    right: 20px !important;
-    left: auto !important;
-    top: auto !important;
-    bottom: 20px !important;
-  }
-  /* Garante que widgets fiquem sempre no topo */
-  [vw], [vw-access-button], [vw-plugin-wrapper], #toggleReader, .tts-alerta {
-    pointer-events: auto !important;
-  }
-</style>
-
-<!-- Botão de leitura -->
-<button id="toggleReader" title="Ativar leitura por clique">
-  <img class="tts" src="../cursosAssets/tts.png" alt="">
-</button>
-
-<!-- Alerta de ativação/desativação -->
-<div id="ttsAlerta" class="tts-alerta"></div>
-
-
-
-<script>
-  let leituraAtiva = false;
-
-  const toggleBtn = document.getElementById('toggleReader');
-  const alerta = document.getElementById('ttsAlerta');
-
-  // Função para impedir que links sejam clicados
-  function bloquearLinks(event) {
-    event.preventDefault();
-  }
-
-  // Função para mostrar aviso estilizado
-  function mostrarAlerta(mensagem) {
-    alerta.textContent = mensagem;
-    alerta.classList.add('visivel');
-    setTimeout(() => {
-      alerta.classList.remove('visivel');
-    }, 3000);
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    leituraAtiva = !leituraAtiva;
-
-    const elementos = document.querySelectorAll('p, span, li, h1, h2, h3, h4, h5, h6, a');
-
-    if (leituraAtiva) {
-      elementos.forEach(el => el.classList.add('texto-tts'));
-
-      document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', bloquearLinks);
-      });
-
-      document.body.addEventListener('click', leituraPorClique);
-
-      toggleBtn.classList.add('ativo');
-      mostrarAlerta("Leitura por clique ativada.");
-      falarMensagem("Leitura por clique ativada.");
-
-    } else {
-      elementos.forEach(el => el.classList.remove('texto-tts'));
-
-      document.querySelectorAll('a').forEach(link => {
-        link.removeEventListener('click', bloquearLinks);
-      });
-
-      document.body.removeEventListener('click', leituraPorClique);
-
-      toggleBtn.classList.remove('ativo');
-      mostrarAlerta("Leitura por clique desativada.");
-      falarMensagem("Leitura por clique desativada.");
-
-    }
-  });
-
-  function leituraPorClique(event) {
-    let selecionado = event.target;
-
-    if (selecionado.closest) {
-      const linkPai = selecionado.closest('a');
-      if (linkPai) selecionado = linkPai;
+    // Função para impedir que links sejam clicados
+    function bloquearLinks(event) {
+      event.preventDefault();
     }
 
-    if (['BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(selecionado.tagName)) return;
+    // Função para mostrar aviso estilizado
+    function mostrarAlerta(mensagem) {
+      alerta.textContent = mensagem;
+      alerta.classList.add('visivel');
+      setTimeout(() => {
+        alerta.classList.remove('visivel');
+      }, 3000);
+    }
 
-    const texto = selecionado.innerText || selecionado.textContent;
-    if (!texto.trim()) return;
+    toggleBtn.addEventListener('click', () => {
+      leituraAtiva = !leituraAtiva;
 
-    const utterance = new SpeechSynthesisUtterance(texto);
-    utterance.lang = "pt-BR";
+      const elementos = document.querySelectorAll('p, span, li, h1, h2, h3, h4, h5, h6, a');
 
-    speechSynthesis.cancel();
-    speechSynthesis.speak(utterance);
+      if (leituraAtiva) {
+        elementos.forEach(el => el.classList.add('texto-tts'));
 
-    event.stopPropagation();
-    event.preventDefault();
-  }
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', bloquearLinks);
+        });
 
-  function falarMensagem(mensagem) {
-    const aviso = new SpeechSynthesisUtterance(mensagem);
-    aviso.lang = "pt-BR";
-    speechSynthesis.cancel(); // Interrompe qualquer leitura anterior
-    speechSynthesis.speak(aviso);
-  }
+        document.body.addEventListener('click', leituraPorClique);
 
+        toggleBtn.classList.add('ativo');
+        mostrarAlerta("Leitura por clique ativada.");
+        falarMensagem("Leitura por clique ativada.");
 
-</script>
-<!-- ......... FIM DO BOTÃO DE TTS ............. -->
+      } else {
+        elementos.forEach(el => el.classList.remove('texto-tts'));
 
+        document.querySelectorAll('a').forEach(link => {
+          link.removeEventListener('click', bloquearLinks);
+        });
 
-  <body>
-    <header>
-      <nav>
-        <a href="../index.html"><img class="logo" src="../assets/loiane-training-logo-branca.png"
-            alt="logo Loiane Gronner"></a>
-        <div class="nav-links" id="navLinks">
-          <i class="fa fa-times" onclick="hideMenu()"></i>
-          <ul>
-            <li><a href="../index.html">Início</a></li>
-            <li><a href="../cursos/cursos copy.html">Cursos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a class="entrar" href="login.html">ENTRAR</a></li>
-          </ul>
-        </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
-      </nav>
-    </header>
+        document.body.removeEventListener('click', leituraPorClique);
 
+        toggleBtn.classList.remove('ativo');
+        mostrarAlerta("Leitura por clique desativada.");
+        falarMensagem("Leitura por clique desativada.");
 
+      }
+    });
 
-    <div class="login_form">
-      <!-- Login form container -->
-      <form id="loginForm" action="#">
-        <h3>Faça login com:</h3>
+    function leituraPorClique(event) {
+      let selecionado = event.target;
 
-        <div class="login_option">
-          <!-- Google button -->
-          <div class="option">
-            <a href="#">
-              <img src="logos/google.png" alt="Google" />
-              <span>Google</span>
-            </a>
-          </div>
-
-          <!-- Apple button -->
-          <div class="option">
-            <a href="#">
-              <img src="../assets/25231.png" alt="Github" />
-              <span>Github</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Login option separator -->
-        <p class="separator">
-          <span>ou</span>
-        </p>
-
-        <!-- Email input box -->
-        <div class="input_box">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Digite seu e-mail" required />
-        </div>
-        <div class="input_box">
-          <div class="password_title">
-            <label for="password">Senha</label>
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-          <input type="password" id="password" placeholder="Digite sua senha" required />
-        </div>
-        <!-- Login button -->
-        <button type="submit">Entrar</button>
-
-        <p class="sign_up">Não possui uma conta? <a href="registro1.html">Cadastre-se</a></p>
-      </form>
-    </div>
-
-    <script>
-      var navLinks = document.getElementById("navLinks");
-
-      function showMenu() {
-        navLinks.style.right = "0";
+      if (selecionado.closest) {
+        const linkPai = selecionado.closest('a');
+        if (linkPai) selecionado = linkPai;
       }
 
-      function hideMenu() {
-        navLinks.style.right = "-200px";
-      }
+      if (['BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(selecionado.tagName)) return;
 
-      // LocalStorage para login com validação de registro
-      document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const senha = document.getElementById('password').value;
+      const texto = selecionado.innerText || selecionado.textContent;
+      if (!texto.trim()) return;
 
-        // Busca registro salvo
-        const registro = localStorage.getItem('registro');
-        if (registro) {
-          try {
-            const usuario = JSON.parse(registro);
-            if (usuario.email === email && usuario.senha === senha) {
-              localStorage.setItem('loginEmail', email);
-              window.location.href = "../cursos/cursos copy.html";
-            } else {
-              alert('Email ou senha incorretos.');
-            }
-          } catch (e) {
-            alert('Erro ao acessar os dados de registro.');
-          }
-        } else {
-          alert('Nenhum usuário registrado encontrado.');
-        }
-      });
-    </script>
+      const utterance = new SpeechSynthesisUtterance(texto);
+      utterance.lang = "pt-BR";
 
-    <!-- >>>>> LIBRAS ACESSIBILIDADE <<<<<< -->
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utterance);
+
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    function falarMensagem(mensagem) {
+      const aviso = new SpeechSynthesisUtterance(mensagem);
+      aviso.lang = "pt-BR";
+      speechSynthesis.cancel(); // Interrompe qualquer leitura anterior
+      speechSynthesis.speak(aviso);
+    }
+
+
+  </script>
+  <header>
+    <nav>
+      <a href="../index.html"><img class="logo" src="../assets/loiane-training-logo-branca.png"
+          alt="logo Loiane Gronner"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../cursos/cursos copy.html">Cursos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a class="entrar" href="login.html">ENTRAR</a></li>
+        </ul>
       </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+  </header>
+
+
+
+  <div class="login_form">
+    <form id="loginForm" action="#">
+      <h3>Faça login com:</h3>
+
+      <div class="login_option">
+        <div class="option">
+          <a href="#">
+            <img src="logos/google.png" alt="Google" />
+            <span>Google</span>
+          </a>
+        </div>
+
+        <div class="option">
+          <a href="#">
+            <img src="../assets/25231.png" alt="Github" />
+            <span>Github</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="separator">
+        <span>ou</span>
+      </p>
+
+      <div class="input_box">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required />
+      </div>
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Senha</label>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+        <input type="password" id="password" placeholder="Digite sua senha" required />
+      </div>
+      <button type="submit">Entrar</button>
+
+      <p class="sign_up">Não possui uma conta? <a href="registro1.html">Cadastre-se</a></p>
+    </form>
+  </div>
+
+  <script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+      navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+      navLinks.style.right = "-200px";
+    }
+
+    // LocalStorage para login com validação de registro
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('password').value;
+
+      // Busca registro salvo
+      const registro = localStorage.getItem('registro');
+      if (registro) {
+        try {
+          const usuario = JSON.parse(registro);
+          if (usuario.email === email && usuario.senha === senha) {
+            localStorage.setItem('loginEmail', email);
+            window.location.href = "../cursos/cursos copy.html";
+          } else {
+            alert('Email ou senha incorretos.');
+          }
+        } catch (e) {
+          alert('Erro ao acessar os dados de registro.');
+        }
+      } else {
+        alert('Nenhum usuário registrado encontrado.');
+      }
+    });
+  </script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-  </body> <!-- Fim do corpo da página -->
-
-</body>
-
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body> 
 </html>
