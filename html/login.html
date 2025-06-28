@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
 <html lang="pt-br">
 
 <head>
@@ -9,209 +10,292 @@
   <link rel="stylesheet" href="login.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <!-- >>>> MENU DE ACESSIBILIDADE SIENNA <<<<< -->
   <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+
 
 </head>
 
-<body>
-  <button id="toggleReader" title="Ativar leitura por clique">
-    <img class="tts" src="../cursosAssets/tts.png" alt="">
-  </button>
+<!-- ......... COMEÇO DO BOTÃO DE TTS ............. -->
+<style>
+  /* Estilo do botão flutuante */
+  #toggleReader {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
 
-  <div id="ttsAlerta" class="tts-alerta"></div>
+  #toggleReader.ativo {
+    background-color: #00c853;
+    /* verde quando ativo */
+  }
 
-  <script>
-    let leituraAtiva = false;
+  .tts {
+    width: 32px;
+ 
+    object-fit: contain;
+  }
 
-    const toggleBtn = document.getElementById('toggleReader');
-    const alerta = document.getElementById('ttsAlerta');
+  /* Estilo do alerta visual */
+  .tts-alerta {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #323232;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
-    // Função para impedir que links sejam clicados
-    function bloquearLinks(event) {
-      event.preventDefault();
+  .tts-alerta.visivel {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Destaque nos textos clicáveis */
+  .texto-tts:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: text-decoration 0.3s ease;
+  }
+</style>
+
+<!-- Botão de leitura -->
+<button id="toggleReader" title="Ativar leitura por clique">
+  <img class="tts" src="../cursosAssets/tts.png" alt="">
+</button>
+
+<!-- Alerta de ativação/desativação -->
+<div id="ttsAlerta" class="tts-alerta"></div>
+
+
+
+<script>
+  let leituraAtiva = false;
+
+  const toggleBtn = document.getElementById('toggleReader');
+  const alerta = document.getElementById('ttsAlerta');
+
+  // Função para impedir que links sejam clicados
+  function bloquearLinks(event) {
+    event.preventDefault();
+  }
+
+  // Função para mostrar aviso estilizado
+  function mostrarAlerta(mensagem) {
+    alerta.textContent = mensagem;
+    alerta.classList.add('visivel');
+    setTimeout(() => {
+      alerta.classList.remove('visivel');
+    }, 3000);
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    leituraAtiva = !leituraAtiva;
+
+    const elementos = document.querySelectorAll('p, span, li, h1, h2, h3, h4, h5, h6, a');
+
+    if (leituraAtiva) {
+      elementos.forEach(el => el.classList.add('texto-tts'));
+
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', bloquearLinks);
+      });
+
+      document.body.addEventListener('click', leituraPorClique);
+
+      toggleBtn.classList.add('ativo');
+      mostrarAlerta("Leitura por clique ativada.");
+      falarMensagem("Leitura por clique ativada.");
+
+    } else {
+      elementos.forEach(el => el.classList.remove('texto-tts'));
+
+      document.querySelectorAll('a').forEach(link => {
+        link.removeEventListener('click', bloquearLinks);
+      });
+
+      document.body.removeEventListener('click', leituraPorClique);
+
+      toggleBtn.classList.remove('ativo');
+      mostrarAlerta("Leitura por clique desativada.");
+      falarMensagem("Leitura por clique desativada.");
+
+    }
+  });
+
+  function leituraPorClique(event) {
+    let selecionado = event.target;
+
+    if (selecionado.closest) {
+      const linkPai = selecionado.closest('a');
+      if (linkPai) selecionado = linkPai;
     }
 
-    // Função para mostrar aviso estilizado
-    function mostrarAlerta(mensagem) {
-      alerta.textContent = mensagem;
-      alerta.classList.add('visivel');
-      setTimeout(() => {
-        alerta.classList.remove('visivel');
-      }, 3000);
-    }
+    if (['BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(selecionado.tagName)) return;
 
-    toggleBtn.addEventListener('click', () => {
-      leituraAtiva = !leituraAtiva;
+    const texto = selecionado.innerText || selecionado.textContent;
+    if (!texto.trim()) return;
 
-      const elementos = document.querySelectorAll('p, span, li, h1, h2, h3, h4, h5, h6, a');
+    const utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "pt-BR";
 
-      if (leituraAtiva) {
-        elementos.forEach(el => el.classList.add('texto-tts'));
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance);
 
-        document.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', bloquearLinks);
-        });
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
-        document.body.addEventListener('click', leituraPorClique);
-
-        toggleBtn.classList.add('ativo');
-        mostrarAlerta("Leitura por clique ativada.");
-        falarMensagem("Leitura por clique ativada.");
-
-      } else {
-        elementos.forEach(el => el.classList.remove('texto-tts'));
-
-        document.querySelectorAll('a').forEach(link => {
-          link.removeEventListener('click', bloquearLinks);
-        });
-
-        document.body.removeEventListener('click', leituraPorClique);
-
-        toggleBtn.classList.remove('ativo');
-        mostrarAlerta("Leitura por clique desativada.");
-        falarMensagem("Leitura por clique desativada.");
-
-      }
-    });
-
-    function leituraPorClique(event) {
-      let selecionado = event.target;
-
-      if (selecionado.closest) {
-        const linkPai = selecionado.closest('a');
-        if (linkPai) selecionado = linkPai;
-      }
-
-      if (['BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(selecionado.tagName)) return;
-
-      const texto = selecionado.innerText || selecionado.textContent;
-      if (!texto.trim()) return;
-
-      const utterance = new SpeechSynthesisUtterance(texto);
-      utterance.lang = "pt-BR";
-
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utterance);
-
-      event.stopPropagation();
-      event.preventDefault();
-    }
-
-    function falarMensagem(mensagem) {
-      const aviso = new SpeechSynthesisUtterance(mensagem);
-      aviso.lang = "pt-BR";
-      speechSynthesis.cancel(); // Interrompe qualquer leitura anterior
-      speechSynthesis.speak(aviso);
-    }
+  function falarMensagem(mensagem) {
+    const aviso = new SpeechSynthesisUtterance(mensagem);
+    aviso.lang = "pt-BR";
+    speechSynthesis.cancel(); // Interrompe qualquer leitura anterior
+    speechSynthesis.speak(aviso);
+  }
 
 
-  </script>
-  <header>
-    <nav>
-      <a href="../index.html"><img class="logo" src="../assets/loiane-training-logo-branca.png"
-          alt="logo Loiane Gronner"></a>
-      <div class="nav-links" id="navLinks">
-        <i class="fa fa-times" onclick="hideMenu()"></i>
-        <ul>
-          <li><a href="../index.html">Início</a></li>
-          <li><a href="../cursos/cursos copy.html">Cursos</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a class="entrar" href="login.html">ENTRAR</a></li>
-        </ul>
-      </div>
-      <i class="fa fa-bars" onclick="showMenu()"></i>
-    </nav>
-  </header>
+</script>
+<!-- ......... FIM DO BOTÃO DE TTS ............. -->
+
+
+  <body>
+    <header>
+      <nav>
+        <a href="../index.html"><img class="logo" src="../assets/loiane-training-logo-branca.png"
+            alt="logo Loiane Gronner"></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../cursos/cursos copy.html">Cursos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a class="entrar" href="login.html">ENTRAR</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </header>
 
 
 
-  <div class="login_form">
-    <form id="loginForm" action="#">
-      <h3>Faça login com:</h3>
+    <div class="login_form">
+      <!-- Login form container -->
+      <form id="loginForm" action="#">
+        <h3>Faça login com:</h3>
 
-      <div class="login_option">
-        <div class="option">
-          <a href="#">
-            <img src="logos/google.png" alt="Google" />
-            <span>Google</span>
-          </a>
+        <div class="login_option">
+          <!-- Google button -->
+          <div class="option">
+            <a href="#">
+              <img src="logos/google.png" alt="Google" />
+              <span>Google</span>
+            </a>
+          </div>
+
+          <!-- Apple button -->
+          <div class="option">
+            <a href="#">
+              <img src="../assets/25231.png" alt="Github" />
+              <span>Github</span>
+            </a>
+          </div>
         </div>
 
-        <div class="option">
-          <a href="#">
-            <img src="../assets/25231.png" alt="Github" />
-            <span>Github</span>
-          </a>
+        <!-- Login option separator -->
+        <p class="separator">
+          <span>ou</span>
+        </p>
+
+        <!-- Email input box -->
+        <div class="input_box">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Digite seu e-mail" required />
         </div>
-      </div>
-
-      <p class="separator">
-        <span>ou</span>
-      </p>
-
-      <div class="input_box">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Digite seu e-mail" required />
-      </div>
-      <div class="input_box">
-        <div class="password_title">
-          <label for="password">Senha</label>
-          <a href="#">Esqueceu a senha?</a>
+        <div class="input_box">
+          <div class="password_title">
+            <label for="password">Senha</label>
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+          <input type="password" id="password" placeholder="Digite sua senha" required />
         </div>
-        <input type="password" id="password" placeholder="Digite sua senha" required />
-      </div>
-      <button type="submit">Entrar</button>
+        <!-- Login button -->
+        <button type="submit">Entrar</button>
 
-      <p class="sign_up">Não possui uma conta? <a href="registro1.html">Cadastre-se</a></p>
-    </form>
-  </div>
-
-  <script>
-    var navLinks = document.getElementById("navLinks");
-
-    function showMenu() {
-      navLinks.style.right = "0";
-    }
-
-    function hideMenu() {
-      navLinks.style.right = "-200px";
-    }
-
-    // LocalStorage para login com validação de registro
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('password').value;
-
-      // Busca registro salvo
-      const registro = localStorage.getItem('registro');
-      if (registro) {
-        try {
-          const usuario = JSON.parse(registro);
-          if (usuario.email === email && usuario.senha === senha) {
-            localStorage.setItem('loginEmail', email);
-            window.location.href = "../cursos/cursos copy.html";
-          } else {
-            alert('Email ou senha incorretos.');
-          }
-        } catch (e) {
-          alert('Erro ao acessar os dados de registro.');
-        }
-      } else {
-        alert('Nenhum usuário registrado encontrado.');
-      }
-    });
-  </script>
-
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+        <p class="sign_up">Não possui uma conta? <a href="registro1.html">Cadastre-se</a></p>
+      </form>
     </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
-</body> 
+
+    <script>
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+
+      // LocalStorage para login com validação de registro
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('password').value;
+
+        // Busca registro salvo
+        const registro = localStorage.getItem('registro');
+        if (registro) {
+          try {
+            const usuario = JSON.parse(registro);
+            if (usuario.email === email && usuario.senha === senha) {
+              localStorage.setItem('loginEmail', email);
+              window.location.href = "../cursos/cursos copy.html";
+            } else {
+              alert('Email ou senha incorretos.');
+            }
+          } catch (e) {
+            alert('Erro ao acessar os dados de registro.');
+          }
+        } else {
+          alert('Nenhum usuário registrado encontrado.');
+        }
+      });
+    </script>
+
+    <!-- >>>>> LIBRAS ACESSIBILIDADE <<<<<< -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </body> <!-- Fim do corpo da página -->
+
+</body>
+
 </html>
