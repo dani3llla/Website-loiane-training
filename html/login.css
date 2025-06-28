@@ -407,3 +407,25 @@ form button {
 form button:hover {
     background: #4954d0;
 }
+
+
+/* .......... acessibilidade fix ..............  */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#toggleReader,
+.tts-alerta,
+[vw] {
+    position: fixed !important;
+    z-index: 9999 !important;
+}
+
+@media(max-width: 700px) {
+  .caixa-texto {
+    width: 95%;
+    max-width: 400px;
+  }
+}
