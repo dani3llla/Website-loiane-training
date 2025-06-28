@@ -400,24 +400,58 @@
             new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var userBtn = document.getElementById('user-btn');
-                var userBtnText = document.getElementById('user-btn-text');
-                var userName = localStorage.getItem('userName');
-                if (userName) {
-                    userBtnText.textContent = userName;
-                    userBtn.href = "#";
-                    userBtn.classList.add('logado');
-                    userBtn.style.pointerEvents = "none";
-                } else {
-                    userBtnText.textContent = "Entrar";
-                    userBtn.href = "login.html";
-                    userBtn.classList.remove('logado');
-                    userBtn.style.pointerEvents = "";
-                }
-            });
-        </script>
+  <script>
+    // Exemplo: simulação de login (substitua por sua lógica real)
+    // Salve o nome da usuária no localStorage ao fazer login, ex: localStorage.setItem('userName', 'Maria');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var userBtn = document.getElementById('user-btn');
+      var userBtnText = document.getElementById('user-btn-text');
+      var userName = localStorage.getItem('userName');
+      if (userName) {
+        userBtnText.textContent = userName;
+        userBtn.href = "#";
+        userBtn.classList.add('logado');
+        userBtn.style.pointerEvents = "";
+        userBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Cria modal estilizado
+          if (document.getElementById('logout-modal')) return; // Evita múltiplos modais
+          var modal = document.createElement('div');
+          modal.className = 'logout-confirm';
+          modal.id = 'logout-modal';
+          modal.innerHTML = `
+            <div class="logout-box">
+              <h2>Deseja deslogar?</h2>
+              <p>Você será desconectado da sua conta.</p>
+              <div class="logout-btns">
+                <button class="logout-btn confirm" id="btnLogoutConfirm">Deslogar</button>
+                <button class="logout-btn cancel" id="btnLogoutCancel">Cancelar</button>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(modal);
+
+          document.getElementById('btnLogoutConfirm').onclick = function () {
+            localStorage.removeItem('userName');
+            localStorage.removeItem('loginEmail');
+            document.body.removeChild(modal);
+            window.location.reload();
+          };
+          document.getElementById('btnLogoutCancel').onclick = function () {
+            document.body.removeChild(modal);
+          };
+        });
+      } else {
+        userBtnText.textContent = "ENTRAR";
+        userBtn.href = "./html/login.html";
+        userBtn.classList.remove('logado');
+        userBtn.style.pointerEvents = "";
+        userBtn.replaceWith(userBtn.cloneNode(true)); // Remove event listener se trocar para "entrar"
+      }
+    });
+  </script>
 
 </body>
 

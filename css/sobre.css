@@ -860,3 +860,83 @@ span {
     display: list-item;
     /* Garante que o marcador apareça */
 }
+
+/* Estilo para mensagem de confirmação de logout */
+.logout-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(44, 14, 80, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.logout-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44,14,80,0.18);
+  padding: 36px 32px 28px 32px;
+  text-align: center;
+  max-width: 340px;
+  width: 90vw;
+  border: 2px solid #4c1a99;
+  animation: fadeInScale 0.3s;
+}
+
+.logout-box h2 {
+  color: #4c1a99;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.logout-box p {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.logout-btns {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.logout-btn {
+  padding: 10px 28px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.logout-btn.confirm {
+  background: #4c1a99;
+  color: #fff;
+}
+
+.logout-btn.cancel {
+  background: #e2c9fc;
+  color: #4c1a99;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
