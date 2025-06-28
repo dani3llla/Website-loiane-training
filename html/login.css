@@ -1,12 +1,12 @@
 /* Google Fonts Link */
-@import url('https://fonts.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Resetting default styling and setting font-family */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 :root {
@@ -16,131 +16,75 @@
 
 body {
     min-height: 100vh;
-    /* Changed from flex to block to avoid layout conflicts with fixed elements */
-    display: block; /* */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(#220a46, #9d32af);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     padding-top: 100px;
-    /* Ensures no horizontal overflow for the body */
-    overflow-x: hidden; /* */
 }
 
-/* ================= NAVBAR E HEADER ================= */
 header {
-  width: 100%;
-  background-color: var(--corPrincipal);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
+    width: 100%;
+    background-color: var(--corPrincipal);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
+
+
 
 nav {
-  display: flex;
-  padding: 2% 6%;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-  width: 203px;
-  height: auto;
+
+    width: 203px;
+    /* você pode ajustar para o tamanho desejado */
+    height: auto;
+    /* mantém a proporção */
 }
 
+
+
 .nav-links {
-  flex: 1;
-  text-align: right;
-  /* Ensure the sidebar itself doesn't cause overflow */
-  overflow-x: hidden; /* */
+    flex: 1;
+    text-align: right;
 }
 
 .nav-links ul li {
-  list-style: none;
-  display: inline-block;
-  padding: 8px 12px;
-  position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
 }
 
 .nav-links ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .nav-links ul li a::after {
-  content: '';
-  width: 0%;
-  height: 2px;
-  background: var(--corPrincipal);
-  display: block;
-  margin: auto;
-  transition: 0.5s;
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--corPrincipal);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
 }
 
 .nav-links ul li a:hover::after {
-  width: 100%;
+    width: 100%;
 }
-
-.entrar {
-  display: inline-block;
-  border-radius: 20px;
-  text-decoration: none;
-  color: white;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 16px 34px;
-  font-size: 28px;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
-}
-
-.entrar:hover {
-  border: 1px solid var(--corPrincipal);
-  background: var(--corPrincipal);
-  transition: 1s;
-}
-
-nav .fa {
-  display: none;
-}
-
-@media(max-width: 700px) {
-  .logo {
-    width: 150px;
-    margin-top: 2vw;
-  }
-
-  .nav-links ul li {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    background-color: #3f0b5e;
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    text-align: left;
-    z-index: 2;
-    transition: 1s;
-  }
-
-  nav .fa {
-    display: block;
-    color: white;
-    margin: 10px;
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  .nav-links ul {
-    padding: 30px;
-  }
-}
-/* =============== FIM NAVBAR E HEADER =============== */
 
 .caixa-texto {
     display: flex;
@@ -169,16 +113,16 @@ nav .fa {
 
 
 .entrar {
-  display: inline-block;
-  border-radius: 20px;
-  text-decoration: none;
-  color: white;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 16px 34px;
-  font-size: 28px;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 16px 34px;
+    font-size: 28px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
 }
 
 .entrar:hover {
@@ -272,8 +216,6 @@ nav .fa {
     border-radius: 6px;
     padding: 41px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    /* Center the login form */
-    margin: 0 auto; /* */
 }
 
 .login_form h3 {
@@ -411,32 +353,4 @@ form button {
 
 form button:hover {
     background: #4954d0;
-}
-
-
-/* .......... acessibilidade fix ..............  */
-
-/* Evita overflow lateral */
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden; /* */
-}
-
-/* Garante que o botão de leitura e VLibras fiquem fixos */
-#toggleReader,
-.tts-alerta,
-[vw] {
-  position: fixed !important;
-  z-index: 99999 !important; /* Increased z-index to ensure it's on top */
-}
-
-/* Impede que elementos como a sidebar forcem largura além da tela */
-.nav-links {
-  overflow-x: hidden;
-}
-
-/* Correção extra para o layout centralizado do login */
-body {
-  display: block; /* Troca o flex, que atrapalhava position: fixed */
-  padding-top: 120px;
 }
