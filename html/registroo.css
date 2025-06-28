@@ -33,7 +33,7 @@ body {
 header {
   width: 100%;
   background-color: var(--corPrincipal);
-  position: absolute;
+  position: fixed; 
   top: 0;
   left: 0;
   z-index: 100;
@@ -41,7 +41,7 @@ header {
 
 
 nav {
-  
+  position: relative;
   display: flex;
   padding: 2% 6%;
   justify-content: space-between;
@@ -252,7 +252,6 @@ nav .fa {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .container {
-  
   margin-top: 150px;
   margin-bottom: 40px;
   position: relative;
