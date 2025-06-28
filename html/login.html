@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Login</title>
   <link rel="shortcut icon" href="../assets/LogoLoiane.png" type="image/x-icon">
   <link rel="stylesheet" href="login.css" />
@@ -77,6 +77,94 @@
     cursor: pointer;
     text-decoration: underline;
     transition: text-decoration 0.3s ease;
+  }
+
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+    background: #f7f7f7;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .login_form {
+    max-width: 400px;
+    margin: 60px auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 32px 20px 24px 20px;
+    width: 90vw;
+    box-sizing: border-box;
+  }
+  @media (max-width: 600px) {
+    .login_form {
+      margin: 32px auto 0 auto;
+      padding: 20px 5vw 16px 5vw;
+      width: 98vw;
+      min-width: unset;
+    }
+    header nav {
+      padding: 0 8px;
+    }
+    .logo {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+  /* Corrige o menu de acessibilidade e widgets para não ficarem presos na sidebar */
+  #toggleReader, .tts-alerta, [vw], [vw-access-button], [vw-plugin-wrapper] {
+    position: fixed !important;
+    z-index: 99999 !important;
+  }
+  /* Garante que a sidebar/menu não cubra os widgets de acessibilidade */
+  nav, .nav-links {
+    z-index: 100 !important;
+  }
+  /* Corrige o menu mobile para não sobrepor widgets */
+  .nav-links {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    transition: right 0.3s;
+    z-index: 200 !important;
+  }
+  .nav-links ul {
+    padding: 0;
+    margin: 60px 0 0 0;
+    list-style: none;
+  }
+  .nav-links ul li {
+    margin: 24px 0;
+    text-align: left;
+  }
+  .fa-bars, .fa-times {
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    z-index: 201 !important;
+    position: relative;
+  }
+  /* Evita que widgets de acessibilidade sejam puxados junto com a sidebar */
+  [vw], [vw-access-button], [vw-plugin-wrapper], #toggleReader, .tts-alerta {
+    right: 20px !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: 20px !important;
+  }
+  /* Garante que widgets fiquem sempre no topo */
+  [vw], [vw-access-button], [vw-plugin-wrapper], #toggleReader, .tts-alerta {
+    pointer-events: auto !important;
   }
 </style>
 
