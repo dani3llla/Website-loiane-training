@@ -45,6 +45,10 @@
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Página Inicial</span>
               </a>
+              <a href="#" class="nav-link" id="logout-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Deslogar</span>
+              </a>
             </li>
 
             <h2>Cursos</h2>
@@ -484,33 +488,167 @@
   filter: grayscale(0.5);
   cursor: not-allowed !important;
 }
+
+.logout-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(44, 14, 80, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+.logout-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44,14,80,0.18);
+  padding: 36px 32px 28px 32px;
+  text-align: center;
+  max-width: 340px;
+  width: 90vw;
+  border: 2px solid #4c1a99;
+  animation: fadeInScale 0.3s;
+}
+.logout-box h2 {
+  color: #4c1a99;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.logout-box p {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+.logout-btns {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+.logout-btn {
+  padding: 10px 28px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.logout-btn.confirm {
+  background: #4c1a99;
+  color: #fff;
+}
+.logout-btn.cancel {
+  background: #e2c9fc;
+  color: #4c1a99;
+}
+.logout-btn:hover {
+  opacity: 0.85;
+}
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 </style>
 <script>
-  // Progresso dos cursos
-  function atualizarProgressoCursos() {
-    // Para compatibilidade: busca progresso individual por curso
-    const cursos = [
-      { id: 'java', key: 'progresso-javaBasico' },
-      { id: 'javainterm', key: 'progresso-javaIntermediario' },
-      { id: 'estrutura', key: 'progresso-estrutura' },
-      { id: 'angular', key: 'progresso-angular' },
-      { id: 'angularspring', key: 'progresso-angularspring' },
-      { id: 'extjs', key: 'progresso-extjs' },
-      { id: 'phonegap', key: 'progresso-phonegap' }
-    ];
-    cursos.forEach(curso => {
-      // Lê progresso salvo no localStorage (0 a 100)
-      let percent = parseInt(localStorage.getItem(curso.key) || '0', 10);
-      // Corrige se for NaN ou fora do intervalo
-      if (isNaN(percent) || percent < 0) percent = 0;
-      if (percent > 100) percent = 100;
-      const barra = document.getElementById('progress-' + curso.id);
-      if (barra) barra.style.width = percent + '%';
+// ...existing code...
+document.addEventListener('DOMContentLoaded', function () {
+  var logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (document.getElementById('logout-modal')) return;
+      var modal = document.createElement('div');
+      modal.className = 'logout-confirm';
+      modal.id = 'logout-modal';
+      modal.innerHTML = `
+        <div class="logout-box">
+          <h2>Deseja deslogar?</h2>
+          <p>Você será desconectado da sua conta.</p>
+          <div class="logout-btns">
+            <button class="logout-btn confirm" id="btnLogoutConfirm">Deslogar</button>
+            <button class="logout-btn cancel" id="btnLogoutCancel">Cancelar</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      document.getElementById('btnLogoutConfirm').onclick = function () {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('loginEmail');
+        document.body.removeChild(modal);
+        window.location.href = "../index.html";
+      };
+      document.getElementById('btnLogoutCancel').onclick = function () {
+        document.body.removeChild(modal);
+      };
     });
   }
-
-  window.addEventListener('DOMContentLoaded', function() {
-    // ...existing code...
-    atualizarProgressoCursos();
-  });
+});
+// ...existing code...
 </script>
+<script>
+// ...existing code...
+
+// Progresso dos cursos
+function atualizarProgressoCursos() {
+  const cursos = [
+    { id: 'java', key: 'progresso-javaBasico' },
+    { id: 'javainterm', key: 'progresso-javaIntermediario' },
+    { id: 'estrutura', key: 'progresso-estrutura' },
+    { id: 'angular', key: 'progresso-angular' },
+    { id: 'angularspring', key: 'progresso-angularspring' },
+    { id: 'extjs', key: 'progresso-extjs' },
+    { id: 'phonegap', key: 'progresso-phonegap' }
+  ];
+  cursos.forEach(curso => {
+    let percent = parseInt(localStorage.getItem(curso.key) || '0', 10);
+    if (isNaN(percent) || percent < 0) percent = 0;
+    if (percent > 100) percent = 100;
+    const barra = document.getElementById('progress-' + curso.id);
+    if (barra) barra.style.width = percent + '%';
+    // Atualiza o texto da barra, se quiser mostrar o valor
+    // if (barra) barra.textContent = percent + '%';
+  });
+}
+
+// Atualiza progresso ao carregar a página
+window.addEventListener('DOMContentLoaded', function() {
+  // ...existing code...
+  atualizarProgressoCursos();
+
+  // Corrige: escuta storage para atualizar progresso em tempo real ao voltar das aulas
+  window.addEventListener('storage', function(e) {
+    if (
+      e.key &&
+      [
+        'progresso-javaBasico',
+        'progresso-javaIntermediario',
+        'progresso-estrutura',
+        'progresso-angular',
+        'progresso-angularspring',
+        'progresso-extjs',
+        'progresso-phonegap'
+      ].includes(e.key)
+    ) {
+      atualizarProgressoCursos();
+    }
+  });
+});
+
+// Também atualiza ao voltar para a página (ex: vindo de uma aula)
+window.addEventListener('focus', atualizarProgressoCursos);
+
+</script>
+</body>
+
+</html>
