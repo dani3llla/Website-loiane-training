@@ -1,12 +1,12 @@
 /* Google Fonts Link */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Resetting default styling and setting font-family */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -16,14 +16,15 @@
 
 body {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Changed from flex to block to avoid layout conflicts with fixed elements */
+    display: block; /* */
     background: linear-gradient(#220a46, #9d32af);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     padding-top: 100px;
+    /* Ensures no horizontal overflow for the body */
+    overflow-x: hidden; /* */
 }
 
 /* ================= NAVBAR E HEADER ================= */
@@ -51,6 +52,8 @@ nav {
 .nav-links {
   flex: 1;
   text-align: right;
+  /* Ensure the sidebar itself doesn't cause overflow */
+  overflow-x: hidden; /* */
 }
 
 .nav-links ul li {
@@ -269,6 +272,8 @@ nav .fa {
     border-radius: 6px;
     padding: 41px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Center the login form */
+    margin: 0 auto; /* */
 }
 
 .login_form h3 {
@@ -414,7 +419,7 @@ form button:hover {
 /* Evita overflow lateral */
 html, body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden; /* */
 }
 
 /* Garante que o botão de leitura e VLibras fiquem fixos */
@@ -422,7 +427,7 @@ html, body {
 .tts-alerta,
 [vw] {
   position: fixed !important;
-  z-index: 9999 !important;
+  z-index: 99999 !important; /* Increased z-index to ensure it's on top */
 }
 
 /* Impede que elementos como a sidebar forcem largura além da tela */
@@ -435,4 +440,3 @@ body {
   display: block; /* Troca o flex, que atrapalhava position: fixed */
   padding-top: 120px;
 }
-
