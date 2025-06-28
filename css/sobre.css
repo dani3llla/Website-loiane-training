@@ -93,20 +93,27 @@ nav .fa {
     }
 
     .nav-links {
-        position: absolute;
-        background: #4c1a99;
+        position: fixed;
+        background-color: #4c1a99;
         height: 100vh;
         width: 200px;
         top: 0;
         right: -200px;
+        /* Escondida por padrão em mobile */
         text-align: left;
         z-index: 100;
-        transition: 1s;
+        /* Aumentado z-index para garantir sobreposição */
+        transition: right 0.5s;
+        display: block;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
     nav .fa {
         display: block;
-        color: rgb(0, 0, 0);
+        color: #300e54;
         margin: 10px;
         font-size: 22px;
         cursor: pointer;
@@ -115,6 +122,20 @@ nav .fa {
     .nav-links ul {
         padding: 30px;
     }
+
+    .nav-links ul li a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .entrar,
+    .hero-btn {
+        color: white;
+        border: 1px solid white !important;
+    }
+
+
 }
 
 
@@ -124,7 +145,7 @@ nav .fa {
     display: inline-block;
     border-radius: 20px;
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 1px solid #000000;
     padding: 16px 34px;
     font-size: 28px;
@@ -135,10 +156,10 @@ nav .fa {
 
 .entrar:hover,
 .hero-btn:hover {
-    color: rgb(255, 255, 255);
 
-    border: 1px solid #4c1a99;
-    background: #4c1a99;
+    color: white;
+    border: 1px solid #23064e;
+    background: #23064e;
     transition: 1s;
 }
 
@@ -206,10 +227,6 @@ span {
     padding: 12px 25px;
     border-radius: 6px;
     transition: 0.5s;
-}
-
-.hire:hover {
-    background: #000;
 }
 
 /* ....... FIM DO SOBRE ........... */
@@ -669,11 +686,11 @@ footer .bottom-details .bottom_text {
 .about.reverse {
     flex-direction: row-reverse;
     padding-top: 50px;
-    
+
 }
 
 .sobre-nós {
-    
+
     background-color: #e2c9fc;
     margin: 0 auto;
     display: flex;
@@ -740,7 +757,7 @@ span {
 
 /* ====== MVV (Missão, Visão, Valores) lado a lado ====== */
 .mvv-container {
-    
+
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -751,12 +768,12 @@ span {
 }
 
 .mvv {
-    
+
     flex: 1 1 0;
     background: #fff;
     border-radius: 16px;
     padding: 32px 24px 24px 24px;
-    box-shadow: 0 2px 16px 0 rgba(76,26,153,0.07);
+    box-shadow: 0 2px 16px 0 rgba(76, 26, 153, 0.07);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -772,7 +789,7 @@ span {
     margin-right: 50px;
 }
 
-.img-mvv{
+.img-mvv {
     width: 100px;
 
     object-fit: contain;
@@ -821,6 +838,7 @@ span {
         align-items: stretch;
         gap: 32px;
     }
+
     .mvv-divider {
         display: none;
     }
@@ -842,4 +860,3 @@ span {
     display: list-item;
     /* Garante que o marcador apareça */
 }
-

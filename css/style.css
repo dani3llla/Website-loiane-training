@@ -184,8 +184,8 @@ nav .fa {
   }
 
   .nav-links {
-    position: absolute;
-    background: var(--corPrincipal);
+    position: fixed;
+    background-color: #4c1a99;
     height: 100vh;
     width: 200px;
     top: 0;
@@ -194,7 +194,13 @@ nav .fa {
     text-align: left;
     z-index: 100;
     /* Aumentado z-index para garantir sobreposição */
-    transition: 1s;
+    transition: right 0.5s;
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
 
   nav .fa {
