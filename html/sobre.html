@@ -20,7 +20,7 @@
     <!-- navegação  -->
     <header>
         <nav>
-            <a href="../index.html"><img class="logo" src="../assets/loiane-training-logo-branca.png"
+            <a href="../index.html"><img class="logo" src="../assets/Loianetraining-black-logo.PNG"
                     alt="loiane training"></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
@@ -28,7 +28,11 @@
                     <li><a href="../index.html">Início</a></li>
                     <li><a href="../cursos/cursos copy.html">Cursos</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li><a class="entrar" href="login.html">Entrar</a></li>
+                    <li>
+                        <a class="entrar" id="user-btn" href="login.html">
+                            <span id="user-btn-text">Entrar</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -163,15 +167,15 @@
                     <div class="media-icons">
                         <!-- redes sociais -->
                         <a href="https://x.com/loiane"><img class="socials"
-                                src="assetsRedesocial/twitter-logo-black-outline-20846.png" alt=""></a>
+                                src="../assetsRedesocial/twitter-logo-black-outline-20846.png" alt=""></a>
                         <a href="https://github.com/loiane"><img class="socials github"
-                                src="assetsRedesocial/github-logo-6532.png" alt=""></a>
+                                src="../assetsRedesocial/github-logo-6532.png" alt=""></a>
                         <a href="https://www.youtube.com/loianegroner"><img class="socials"
-                                src="assetsRedesocial/youtube-123.png" alt=""></a>
+                                src="../assetsRedesocial/youtube-123.png" alt=""></a>
                         <a href="https://www.facebook.com/loianegroner"><img class="socials"
-                                src="assetsRedesocial/facebook-logo-108.png" alt=""></a>
+                                src="../assetsRedesocial/facebook-logo-108.png" alt=""></a>
                         <a href="https://www.linkedin.com/in/loiane"><img class="socials"
-                                src="assetsRedesocial/linkedin-112.png" alt=""></a>
+                                src="../assetsRedesocial/linkedin-112.png" alt=""></a>
                     </div>
                 </div>
                 <div class="link-boxes">
@@ -394,6 +398,25 @@
         <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
         <script>
             new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var userBtn = document.getElementById('user-btn');
+                var userBtnText = document.getElementById('user-btn-text');
+                var userName = localStorage.getItem('userName');
+                if (userName) {
+                    userBtnText.textContent = userName;
+                    userBtn.href = "#";
+                    userBtn.classList.add('logado');
+                    userBtn.style.pointerEvents = "none";
+                } else {
+                    userBtnText.textContent = "Entrar";
+                    userBtn.href = "login.html";
+                    userBtn.classList.remove('logado');
+                    userBtn.style.pointerEvents = "";
+                }
+            });
         </script>
 
 </body>

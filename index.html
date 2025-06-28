@@ -42,7 +42,7 @@
     <div class="caixa-texto">
       <h1>Angular, Java, Spring e mais... </h1>
       <p>cursos online e gratuitos com certificado de participação! </p>
-      <a href="#" class="hero-btn">Saiba Mais</a>
+      <a href="#cursos" class="hero-btn" id="btn-saiba-mais">Saiba Mais</a>
     </div>
   </header>
 
@@ -529,6 +529,17 @@
         userBtn.href = "./html/login.html";
         userBtn.classList.remove('logado');
         userBtn.style.pointerEvents = "";
+      }
+
+      var saibaMais = document.getElementById('btn-saiba-mais');
+      if (saibaMais) {
+        saibaMais.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById('cursos');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
       }
     });
   </script>

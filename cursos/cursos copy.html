@@ -388,10 +388,16 @@
     let usuarioLogado = false;
     const registro = localStorage.getItem('registro');
     const loginEmail = localStorage.getItem('loginEmail');
-    if (registro && loginEmail) {
+    if (registro) {
       try {
         const usuario = JSON.parse(registro);
-        if (usuario.email === loginEmail) {
+        // Se loginEmail existir, valida pelo email logado
+        if (loginEmail && usuario.email === loginEmail) {
+          usuarioNome = usuario.nome;
+          usuarioLogado = true;
+        }
+        // Se loginEmail não existir, mas o nome está salvo (primeiro acesso após cadastro)
+        else if (!loginEmail && localStorage.getItem('userName') === usuario.nome) {
           usuarioNome = usuario.nome;
           usuarioLogado = true;
         }

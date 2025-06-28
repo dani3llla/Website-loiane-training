@@ -25,7 +25,11 @@
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="../cursos/cursos copy.html">Cursos</a></li>
           <li><a href="sobre.html">Sobre</a></li>
-          <li><a class="entrar" href="login.html">ENTRAR</a></li>
+          <li>
+            <a class="entrar" id="user-btn" href="login.html">
+              <span id="user-btn-text">ENTRAR</span>
+            </a>
+          </li>
         </ul>
       </div>
       <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -284,6 +288,24 @@
     <script>
       new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var userBtn = document.getElementById('user-btn');
+    var userBtnText = document.getElementById('user-btn-text');
+    var userName = localStorage.getItem('userName');
+    if (userName) {
+      userBtnText.textContent = userName;
+      userBtn.href = "#";
+      userBtn.classList.add('logado');
+      userBtn.style.pointerEvents = "none";
+    } else {
+      userBtnText.textContent = "ENTRAR";
+      userBtn.href = "login.html";
+      userBtn.classList.remove('logado');
+      userBtn.style.pointerEvents = "";
+    }
+  });
+</script>
 </body> <!-- Fim do corpo da página -->
 
 
