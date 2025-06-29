@@ -113,6 +113,10 @@ background: linear-gradient(270deg, rgba(181, 34, 125, 1) 0%, rgba(53, 3, 81, 1)
   }
 
 
+  .lists .nav-link.active {
+    background-color: #b840f4;
+  }
+
   .container {
     display: flex;
     flex-direction: column;

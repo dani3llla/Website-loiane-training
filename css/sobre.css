@@ -73,6 +73,14 @@ nav .fa {
     display: none;
 }
 
+  #user-btn-text {
+    color: black;
+  }
+
+  #user-btn-text:hover {
+    color: #ffffff;
+  }
+
 @media(max-width: 700px) {
     .logo {
         width: 150px;
