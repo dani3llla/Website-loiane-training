@@ -181,13 +181,13 @@
                 <div class="link-boxes">
                     <ul class="box">
                         <li class="link_name">Cursos</li>
-                        <li><a href="#">Java Básico</a></li>
-                        <li><a href="#">Java Intermediário</a></li>
-                        <li><a href="#">Estrutura de Dados com Java</a></li>
-                        <li><a href="#">Angular</a></li>
-                        <li><a href="#">Phonegap e Apache Cordova</a></li>
-                        <li><a href="#">CRUD Angular + Spring</a></li>
-                        <li><a href="#">Fundamentos Ext JS 4</a></li>
+                        <li><a href="../cursos/cursos copy.html">Java Básico</a></li>
+                        <li><a href="../cursos/cursos copy.html">Java Intermediário</a></li>
+                        <li><a href="../cursos/cursos copy.html">Estrutura de Dados com Java</a></li>
+                        <li><a href="../cursos/cursos copy.html">Angular</a></li>
+                        <li><a href="../cursos/cursos copy.html">Phonegap e Apache Cordova</a></li>
+                        <li><a href="../cursos/cursos copy.html">CRUD Angular + Spring</a></li>
+                        <li><a href="../cursos/cursos copy.html">Fundamentos Ext JS 4</a></li>
                     </ul>
                     <ul class="box input-box">
                         <li class="link_name">Inscreva-se</li>
@@ -445,10 +445,12 @@
         });
       } else {
         userBtnText.textContent = "ENTRAR";
-        userBtn.href = "./html/login.html";
+        userBtn.href = "login.html";
         userBtn.classList.remove('logado');
         userBtn.style.pointerEvents = "";
-        userBtn.replaceWith(userBtn.cloneNode(true)); // Remove event listener se trocar para "entrar"
+        // Remove qualquer event listener antigo
+        var newBtn = userBtn.cloneNode(true);
+        userBtn.parentNode.replaceChild(newBtn, userBtn);
       }
     });
   </script>
