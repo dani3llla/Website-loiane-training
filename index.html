@@ -242,19 +242,18 @@
             </div>
           </div>
           <div class="slide swiper-slide">
-            <img src="assets/mulher-usando-tablet-e-fones-de-ouvido-em-casa-no-sofa.jpg" alt="" class="image" />
+            <img src="assets/sarah.png" alt="" class="image" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
-              saepe provident dolorem a quaerat quo error facere nihil deleniti
-              eligendi ipsum adipisci, fugit, architecto amet asperiores
-              doloremque deserunt eum nemo.
+              “A Loiane me fez acreditar que era possível aprender tecnologia mesmo sem uma formação tradicional. A
+              forma como ela explica, com calma e clareza, fez toda a diferença. O curso de Ext JS 4 me desafiou, mas
+              também me mostrou que sou capaz.”
             </p>
 
             <i class="bx bxs-quote-alt-left quote-icon"></i>
 
             <div class="details">
-              <span class="name">Marnie Lotter</span>
-              <span class="job">Web Developer</span>
+              <span class="name">Sarah Araújo</span>
+              <span class="job">Ex-Aluna de Fundamentos Ext JS4</span>
             </div>
           </div>
         </div>
@@ -561,6 +560,18 @@
         userBtn.classList.remove('logado');
         userBtn.style.pointerEvents = "";
         userBtn.replaceWith(userBtn.cloneNode(true)); // Remove event listener se trocar para "entrar"
+      }
+
+      // Transição suave para os cards ao clicar em "Saiba Mais"
+      var saibaMais = document.getElementById('btn-saiba-mais');
+      if (saibaMais) {
+        saibaMais.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById('cursos');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
       }
     });
   </script>
