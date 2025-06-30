@@ -79,7 +79,7 @@ body {
   left: 0;
   z-index: 0;
   border-radius: 5px;
-background: linear-gradient(#220a46, #9d32af);
+  background: linear-gradient(#220a46, #9d32af);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -450,6 +450,7 @@ nav .fa {
   nav {
     padding: 18px 20px;
   }
+
   .logo {
     width: 150px;
     margin-top: 2vw;
@@ -461,9 +462,11 @@ nav .fa {
     width: 150px;
     margin-top: 2vw;
   }
+
   .nav-links ul li {
     display: block;
   }
+
   .nav-links {
     position: fixed;
     background-color: #4c1a99;
@@ -478,9 +481,10 @@ nav .fa {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding-top: 60px;
   }
+
   nav .fa {
     display: block;
     color: white;
@@ -492,6 +496,7 @@ nav .fa {
     top: 22px;
     z-index: 20;
   }
+
   .nav-links ul {
     padding: 30px;
   }
@@ -516,3 +521,33 @@ body::after {
   width: 100%;
 }
 
+
+/* ...... estilização da mensagem de cadastro com sucesso .......  */
+.sucesso-cadastro {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e2c9fc;
+  color: #350351;
+  border: 2px solid #4c1a99;
+  border-radius: 12px;
+  padding: 18px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(44, 14, 80, 0.13);
+  z-index: 99999;
+  animation: fadeInScale 0.4s;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}

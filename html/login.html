@@ -200,6 +200,8 @@
       text-decoration: underline;
       transition: text-decoration 0.3s ease;
     }
+
+
   </style>
 
   <button id="toggleReader" title="Ativar leitura por clique">
@@ -374,8 +376,16 @@
       const usuario = { nome, email, senha, nascimento };
       localStorage.setItem('registro', JSON.stringify(usuario));
       localStorage.setItem('userName', nome);
-      alert('Cadastro realizado com sucesso!');
-      window.location.href = "../cursos/cursos copy.html";
+
+      // Mensagem estilizada de sucesso
+      var msg = document.createElement('div');
+      msg.className = 'sucesso-cadastro';
+      msg.textContent = 'Cadastro realizado com sucesso!';
+      document.body.appendChild(msg);
+      setTimeout(function () {
+        msg.remove();
+        window.location.href = "../cursos/cursos copy.html";
+      }, 1800);
     });
 
     // Login
