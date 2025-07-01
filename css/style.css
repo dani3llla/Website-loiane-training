@@ -1114,3 +1114,10 @@ footer .bottom-details .bottom_text {
     transform: scale(1);
   }
 }
+
+@media  (max-width: 1024px) {
+  header {
+    background-image: url(../assets/header-do-celular.png);
+  }
+  
+}
