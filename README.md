@@ -66,7 +66,7 @@ Criada por **Loiane Groner**, desenvolvedora experiente e referência em ensino 
 
 ## 📸 Prévia do projeto
 
-![preview do site](assets/Página-inicial.png) 
+![preview do site](assets/pagina-inicial-web-mobile.png) 
 
 ---
 
