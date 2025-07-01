@@ -237,15 +237,15 @@
         </div>
         <div class="media-icons">
           <!-- redes sociais -->
-          <a href="https://x.com/loiane"><img class="socials"
+          <a href="https://x.com/loiane" target="_blank"><img class="socials"
               src="../assetsRedesocial/twitter-logo-black-outline-20846.png" alt=""></a>
-          <a href="https://github.com/loiane"><img class="socials github" src="../assetsRedesocial/github-logo-6532.png"
+          <a href="https://github.com/loiane" target="_blank"><img class="socials github" src="../assetsRedesocial/github-logo-6532.png"
               alt=""></a>
-          <a href="https://www.youtube.com/loianegroner"><img class="socials" src="../assetsRedesocial/youtube-123.png"
+          <a href="https://www.youtube.com/loianegroner" target="_blank"><img class="socials" src="../assetsRedesocial/youtube-123.png"
               alt=""></a>
-          <a href="https://www.facebook.com/loianegroner"><img class="socials"
+          <a href="https://www.facebook.com/loiane" target="_blank"><img class="socials"
               src="../assetsRedesocial/facebook-logo-108.png" alt=""></a>
-          <a href="https://www.linkedin.com/in/loiane"><img class="socials" src="../assetsRedesocial/linkedin-112.png"
+          <a href="https://www.linkedin.com/in/loiane" target="_blank"><img class="socials" src="../assetsRedesocial/linkedin-112.png"
               alt=""></a>
         </div>
       </div>
@@ -305,9 +305,7 @@
         userBtn.style.pointerEvents = "";
         userBtn.addEventListener('click', function (e) {
           e.preventDefault();
-
-          // Cria modal estilizado
-          if (document.getElementById('logout-modal')) return; // Evita múltiplos modais
+          if (document.getElementById('logout-modal')) return;
           var modal = document.createElement('div');
           modal.className = 'logout-confirm';
           modal.id = 'logout-modal';
@@ -335,10 +333,11 @@
         });
       } else {
         userBtnText.textContent = "ENTRAR";
-        userBtn.href = "./html/login.html";
+        userBtn.href = "../html/login.html";
         userBtn.classList.remove('logado');
         userBtn.style.pointerEvents = "";
-        userBtn.replaceWith(userBtn.cloneNode(true)); // Remove event listener se trocar para "entrar"
+        var newBtn = userBtn.cloneNode(true);
+        userBtn.parentNode.replaceChild(newBtn, userBtn);
       }
     });
   </script>
